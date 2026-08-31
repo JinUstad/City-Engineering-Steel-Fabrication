@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   description:
     'CESF (City Engineering & Steel Fabrication) - BUILD • SHAPE • STRONGER. Leading manufacturers of heavy structural steel, industrial PEB sheds, CNC fiber laser cutting, architectural metalwork & pressure vessels in New Delhi.',
   icons: {
-    icon: '/cesf-logo.png',
-    apple: '/cesf-logo.png',
+    icon: '/cesf-logo.webp',
+    apple: '/cesf-logo.webp',
   },
 }
 

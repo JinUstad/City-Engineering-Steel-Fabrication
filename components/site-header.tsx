@@ -48,7 +48,7 @@ export function SiteHeader() {
         <a href="#home" className="group flex items-center gap-3.5">
           <div className="relative size-12 sm:size-14 rounded-full overflow-hidden border-2 border-brand-orange/70 p-0.5 bg-[#0b101c] shadow-[0_0_15px_rgba(255,85,0,0.35)] transition-transform duration-300 group-hover:scale-105">
             <Image
-              src="/cesf-logo.png"
+              src="/cesf-logo.webp"
               alt="CESF FABRICATION Logo"
               fill
               className="object-cover"

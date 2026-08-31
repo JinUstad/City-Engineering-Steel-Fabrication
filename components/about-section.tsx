@@ -21,7 +21,7 @@ export function AboutSection() {
           <div className="relative">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border-2 border-slate-700 bg-slate-900 shadow-2xl">
               <Image
-                src="/about-factory.jpg"
+                src="/about-factory.webp"
                 alt="CESF Heavy Steel Fabrication Workshop in New Delhi"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"

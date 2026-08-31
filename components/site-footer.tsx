@@ -34,7 +34,7 @@ export function SiteFooter() {
           <a href="#home" className="flex items-center gap-3">
             <div className="relative size-12 rounded-full overflow-hidden border border-brand-orange/80 bg-[#0b101c] p-0.5">
               <Image
-                src="/cesf-logo.png"
+                src="/cesf-logo.webp"
                 alt="CESF Fabrication Logo"
                 fill
                 className="object-cover"
