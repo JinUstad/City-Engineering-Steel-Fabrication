@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowRight, CheckCircle2, PhoneCall } from 'lucide-react'
 import { PRODUCTS, COMPANY } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
@@ -71,13 +72,13 @@ export function ProductsGrid() {
 
                 {/* Card Action */}
                 <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/contact"
                     className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-orange hover:text-amber-400 transition-colors"
                   >
                     <span>Inquire / RFQ</span>
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </a>
+                  </Link>
                   <span className="text-[11px] font-semibold text-slate-400">
                     Custom Sizing Available
                   </span>

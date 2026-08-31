@@ -16,10 +16,10 @@ export const COMPANY = {
 }
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '/#home' },
-  { label: 'Services & Products', href: '/#products' },
-  { label: 'Work Gallery', href: '/#gallery' },
-  { label: 'Capabilities', href: '/#about' },
+  { label: 'Home', href: '/' },
+  { label: 'Services & Products', href: '/products' },
+  { label: 'Work Gallery', href: '/gallery' },
+  { label: 'Capabilities', href: '/about' },
   { label: 'Contact Us', href: '/contact' },
 ]
 
@@ -64,6 +64,7 @@ export type Product = {
   image: string
   description: string
   features: string[]
+  specs?: string[]
 }
 
 export const PRODUCTS: Product[] = [
@@ -72,42 +73,48 @@ export const PRODUCTS: Product[] = [
     category: 'Structural Steel',
     image: '/product-structural-steel.webp',
     description: 'Custom heavy columns, box girders, I-beam framing, and truss networks engineered to withstand high industrial loads.',
-    features: ['High-tensile steel grades', 'Ultrasonic tested welds', 'Anti-corrosive primer coating'],
+    features: ['High-tensile steel grades (IS 2062 / ASTM A36)', 'Ultrasonic tested welds (UT / RT)', 'Anti-corrosive zinc primer coating'],
+    specs: ['Max Crane Capacity: 50 Tons', 'Welding: AWS D1.1 Certified', 'Finishes: Sa 2.5 Shot Blasted'],
   },
   {
     name: 'Industrial Sheds & PEB Warehouses',
     category: 'PEB Buildings',
     image: '/banner-shed.webp',
     description: 'Complete pre-engineered metal building solutions for factories, logistic hubs, storage yards, and manufacturing units.',
-    features: ['Clear-span design up to 60m', 'Fast on-site assembly', 'Weather & seismic resistant'],
+    features: ['Clear-span design up to 60m', 'Fast on-site assembly & erection', 'Weather & seismic resistant structural framing'],
+    specs: ['Span: 15m to 60m Clear', 'Purlins: Z & C Galvanized', 'Sheeting: Color Coated Galvalume'],
   },
   {
     name: 'CNC Laser Cutting & Sheet Metal',
     category: 'Precision CNC',
     image: '/banner-laser.webp',
     description: 'Laser cutting, CNC hydraulic press brake bending, punching, and tailored sheet metal components for all engineering needs.',
-    features: ['Up to 25mm mild/stainless steel', '±0.05mm high accuracy', 'Rapid prototyping to bulk'],
+    features: ['Up to 25mm mild/stainless steel cutting', '±0.05mm high accuracy repeatable tolerance', 'Rapid CAD prototyping to bulk industrial lots'],
+    specs: ['Bed Size: 2m x 6m', 'Laser Power: 6kW Fiber Laser', 'Bending: 250-Ton CNC Press Brake'],
   },
   {
     name: 'Architectural Staircases & Railings',
     category: 'Architectural',
     image: '/product-steel-staircase.webp',
     description: 'Contemporary floating steel staircases, spiral fire exits, glass-fitted SS railings, and premium facade framing.',
-    features: ['Custom luxury metal finishes', 'Engineered load bearing', 'Interior & exterior grade'],
+    features: ['Custom luxury metal finishes & powder coat', 'Engineered load bearing structural calculations', 'Interior & exterior grade Grade 304/316 SS'],
+    specs: ['Stringers: CNC Profile Cut', 'Treads: Solid Steel / Timber / Glass', 'Railing: Toughened Glass & SS'],
   },
   {
     name: 'Industrial Silos & Pressure Vessels',
     category: 'Heavy Equipment',
     image: '/product-storage-tanks.webp',
     description: 'Heavy cylindrical storage tanks, chemical silos, pressure vessels, and hoppers fabricated with heavy-gauge plate.',
-    features: ['Leak-proof X-ray grade welding', 'Custom volume & pressure rating', 'Food & chemical grade SS/MS'],
+    features: ['Leak-proof X-ray grade radiographic welding', 'Custom volume & pressure rating to ASME codes', 'Food & chemical grade SS 304/316 & MS'],
+    specs: ['Capacity: Up to 100,000 Litres', 'Testing: 100% Hydrostatic & DPT', 'Thickness: Up to 30mm Plate'],
   },
   {
     name: 'Designer Gates, Grills & Facades',
     category: 'Security & Gates',
     image: '/product-gates-grills.webp',
     description: 'Heavy-duty motorized sliding gates, security grills, laser-cut decorative facades, and perimeter security barriers.',
-    features: ['Laser cut custom patterns', 'Hot-dip galvanized & powder coated', 'Automated motor compatible'],
+    features: ['Laser cut custom CNC architectural motifs', 'Hot-dip galvanized & heavy industrial PU painted', 'Automated Italian motor drive compatible'],
+    specs: ['Automation: Italian Motor Ready', 'Coating: 10-Yr Weather Coat', 'Custom Pattern CAD Cutting'],
   },
 ]
 
