@@ -1,23 +1,26 @@
 export const COMPANY = {
-  name: 'FM Modular Systems',
-  tagline: 'Manufacturer & Supplier of Modular Interiors',
-  founded: '2019',
-  email: 'info@fmsystems.co.in',
-  phone: '+91 98100 00000',
+  name: 'CESF Fabrication',
+  fullName: 'City Engineering & Steel Fabrication',
+  tagline: 'BUILD • SHAPE • STRONGER',
+  subTagline: 'Heavy Structural Steel, PEB Sheds & Precision Metal Fabrication',
+  founded: '2008',
+  email: 'info@cesffabrication.com',
+  phone: '+91 98112 34567',
+  altPhone: '+91 98991 23456',
   addressLines: [
-    'FM Modular Systems',
-    'Plot No. 24, Industrial Area',
-    'New Delhi, Delhi 110001, India',
+    'City Engineering & Steel Fabrication',
+    'Plot No. 48, Industrial Area Phase-II',
+    'New Delhi, Delhi 110020, India',
   ],
-  addressShort: 'New Delhi, India',
+  addressShort: 'Phase-II Industrial Area, New Delhi',
 }
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'Products', href: '#products' },
-  { label: 'Featured', href: '#featured' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Services & Products', href: '#products' },
+  { label: 'Featured Projects', href: '#featured' },
+  { label: 'Our Capabilities', href: '#about' },
+  { label: 'Contact Us', href: '#contact' },
 ]
 
 export type Banner = {
@@ -25,29 +28,33 @@ export type Banner = {
   eyebrow: string
   title: string
   description: string
+  tag: string
 }
 
 export const BANNERS: Banner[] = [
   {
-    image: '/banner-kitchen.png',
-    eyebrow: 'Modular Kitchens',
-    title: 'Acrylic kitchens built to last a lifetime',
+    image: '/banner-welding.jpg',
+    eyebrow: 'Heavy Structural Steel Fabrication',
+    title: 'Engineered for Maximum Strength & Durability',
     description:
-      'High-gloss acrylic shutters, precision hardware, and factory-finished modular units made to order in New Delhi.',
+      'Certified MIG/TIG welding, structural I-beams, heavy columns, and industrial assemblies precision-fabricated in New Delhi.',
+    tag: 'Certified ISO 9001:2015',
   },
   {
-    image: '/banner-sofa.png',
-    eyebrow: 'Living Room',
-    title: 'Sofa sets crafted for everyday comfort',
+    image: '/banner-shed.jpg',
+    eyebrow: 'Pre-Engineered Buildings (PEB)',
+    title: 'Industrial Sheds, Warehouses & Factory Framing',
     description:
-      'Durable frames, quality upholstery, and clean contemporary designs for homes and offices.',
+      'Turnkey design, fabrication, and erection of high-span steel sheds, commercial roofs, and heavy mezzanine structures.',
+    tag: 'Turnkey PEB Solutions',
   },
   {
-    image: '/banner-office.png',
-    eyebrow: 'Commercial Interiors',
-    title: 'Office workstations that scale with you',
+    image: '/banner-laser.jpg',
+    eyebrow: 'CNC Fiber Laser & Sheet Metal',
+    title: 'High-Precision Cutting, Bending & Custom Metalwork',
     description:
-      'Modular workstations, partitions, and storage engineered for productive, professional spaces.',
+      'State-of-the-art CNC fiber laser cutting up to 25mm plate thickness with ultra-fine tolerances and fast turnaround.',
+    tag: 'High-Tolerance CNC Precision',
   },
 ]
 
@@ -56,70 +63,107 @@ export type Product = {
   category: string
   image: string
   description: string
+  features: string[]
 }
 
 export const PRODUCTS: Product[] = [
   {
-    name: 'Acrylic Kitchen Shutters',
-    category: 'Kitchen',
-    image: '/product-acrylic-shutters.png',
-    description: 'High-gloss, scratch-resistant acrylic shutters in a full range of colours.',
+    name: 'Heavy Structural Steel Fabrication',
+    category: 'Structural Steel',
+    image: '/product-structural-steel.jpg',
+    description: 'Custom heavy columns, box girders, I-beam framing, and truss networks engineered to withstand high industrial loads.',
+    features: ['High-tensile steel grades', 'Ultrasonic tested welds', 'Anti-corrosive primer coating'],
   },
   {
-    name: 'Sofa Sets',
-    category: 'Living Room',
-    image: '/product-sofa.png',
-    description: 'Custom sofa sets with durable frames and premium upholstery.',
+    name: 'Industrial Sheds & PEB Warehouses',
+    category: 'PEB Buildings',
+    image: '/banner-shed.jpg',
+    description: 'Complete pre-engineered metal building solutions for factories, logistic hubs, storage yards, and manufacturing units.',
+    features: ['Clear-span design up to 60m', 'Fast on-site assembly', 'Weather & seismic resistant'],
   },
   {
-    name: 'Modular Kitchens',
-    category: 'Kitchen',
-    image: '/product-modular-kitchen.png',
-    description: 'Complete modular kitchen solutions designed, built, and installed.',
+    name: 'CNC Laser Cutting & Sheet Metal',
+    category: 'Precision CNC',
+    image: '/banner-laser.jpg',
+    description: 'Laser cutting, CNC hydraulic press brake bending, punching, and tailored sheet metal components for all engineering needs.',
+    features: ['Up to 25mm mild/stainless steel', '±0.05mm high accuracy', 'Rapid prototyping to bulk'],
   },
   {
-    name: 'Office Workstations',
-    category: 'Office',
-    image: '/product-workstation.png',
-    description: 'Space-efficient workstations and partitions for modern offices.',
+    name: 'Architectural Staircases & Railings',
+    category: 'Architectural',
+    image: '/product-steel-staircase.jpg',
+    description: 'Contemporary floating steel staircases, spiral fire exits, glass-fitted SS railings, and premium facade framing.',
+    features: ['Custom luxury metal finishes', 'Engineered load bearing', 'Interior & exterior grade'],
   },
   {
-    name: 'Wardrobes',
-    category: 'Bedroom',
-    image: '/product-wardrobe.png',
-    description: 'Sliding and hinged wardrobes with smart internal storage.',
+    name: 'Industrial Silos & Pressure Vessels',
+    category: 'Heavy Equipment',
+    image: '/product-storage-tanks.jpg',
+    description: 'Heavy cylindrical storage tanks, chemical silos, pressure vessels, and hoppers fabricated with heavy-gauge plate.',
+    features: ['Leak-proof X-ray grade welding', 'Custom volume & pressure rating', 'Food & chemical grade SS/MS'],
   },
   {
-    name: 'Tables',
-    category: 'Furniture',
-    image: '/product-table.png',
-    description: 'Dining, coffee, and work tables in a variety of finishes.',
+    name: 'Designer Gates, Grills & Facades',
+    category: 'Security & Gates',
+    image: '/product-gates-grills.jpg',
+    description: 'Heavy-duty motorized sliding gates, security grills, laser-cut decorative facades, and perimeter security barriers.',
+    features: ['Laser cut custom patterns', 'Hot-dip galvanized & powder coated', 'Automated motor compatible'],
   },
 ]
 
 export const FEATURED: Product[] = [
   {
-    name: 'Handleless Modular Kitchen',
-    category: 'Best Seller',
-    image: '/product-modular-kitchen.png',
-    description: 'Sleek handleless design with soft-close hardware and quartz worktop.',
+    name: 'Heavy-Duty Industrial PEB Structure',
+    category: 'Mega Project',
+    image: '/banner-shed.jpg',
+    description: '50,000+ sq.ft industrial logistics warehouse engineered with high-strength portal frames and insulated roof panels.',
+    features: ['50,000+ Sq. Ft.', 'Full Erection Done', 'Turnkey Handover'],
   },
   {
-    name: 'Wall-Mounted TV Unit',
-    category: 'New',
-    image: '/product-tv-unit.png',
-    description: 'Floating entertainment unit with concealed storage and cable management.',
+    name: 'High-Pressure Pipeline Spools & Skids',
+    category: 'Specialized',
+    image: '/product-pipe-fabrication.jpg',
+    description: 'Custom flanged piping manifolds, modular equipment skids, and heavy pipeline assemblies tested for severe conditions.',
+    features: ['Hydro-tested 150 PSI', '100% NDT Inspected', 'Precision Flange Alignment'],
   },
   {
-    name: 'Glass Crockery Unit',
-    category: 'Popular',
-    image: '/product-crockery-unit.png',
-    description: 'Display cabinet with toughened glass doors and adjustable shelving.',
+    name: 'Architectural Commercial Steel Staircase',
+    category: 'Showcase',
+    image: '/product-steel-staircase.jpg',
+    description: 'Central floating steel staircase with laser-cut stringers, solid treads, and structural glass railing system.',
+    features: ['Grade 304/316 SS', 'Matte Gunmetal Finish', 'Custom Engineered Fit'],
   },
   {
-    name: 'Sliding Door Wardrobe',
-    category: 'Popular',
-    image: '/product-wardrobe.png',
-    description: 'Mirror-finish sliding wardrobe that maximises bedroom space.',
+    name: 'Heavy Industrial Silo Storage Battery',
+    category: 'Heavy Fabrication',
+    image: '/product-storage-tanks.jpg',
+    description: 'Multi-tank industrial bulk storage setup fabricated with polished stainless steel 304L for chemical processing.',
+    features: ['High Capacity Silos', 'Corrosion Shield', 'Automated Discharge'],
+  },
+]
+
+export const STATS = [
+  { value: '18+', label: 'Years of Experience' },
+  { value: '1,500+', label: 'Completed Projects' },
+  { value: '25,000+', label: 'Tons Steel Fabricated' },
+  { value: '99.8%', label: 'On-Time Delivery' },
+]
+
+export const CAPABILITIES = [
+  {
+    title: 'Heavy Structural Fabrication',
+    desc: 'Heavy structural beams, portal frames, plate girders, and seismic-resistant steel framing.',
+  },
+  {
+    title: 'Certified Welding Standards',
+    desc: 'WPS/PQR qualified welders executing MIG, TIG, and SAW with radiographic inspection compliance.',
+  },
+  {
+    title: 'CNC High-Speed Cutting',
+    desc: '6kW Fiber Laser with automated nesting for optimal material utilization and mirror finish edges.',
+  },
+  {
+    title: 'Surface Treatment & Coating',
+    desc: 'In-house grit blasting (Sa 2.5), zinc epoxy priming, hot-dip galvanizing, and industrial PU painting.',
   },
 ]

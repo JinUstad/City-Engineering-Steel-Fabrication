@@ -10,15 +10,18 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'FM Modular Systems | Modular Kitchens, Wardrobes & Furniture in New Delhi',
+  title: 'CESF Fabrication | Heavy Structural Steel & Metal Engineering New Delhi',
   description:
-    'FM Modular Systems is a New Delhi manufacturer and supplier of acrylic kitchen shutters, modular kitchens, sofa sets, office workstations, wardrobes, and tables. Browse our catalogue and inquire today.',
-  generator: 'v0.app',
+    'CESF (City Engineering & Steel Fabrication) - BUILD • SHAPE • STRONGER. Leading manufacturers of heavy structural steel, industrial PEB sheds, CNC fiber laser cutting, architectural metalwork & pressure vessels in New Delhi.',
+  icons: {
+    icon: '/cesf-logo.png',
+    apple: '/cesf-logo.png',
+  },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#ffffff',
+  colorScheme: 'dark',
+  themeColor: '#090d16',
 }
 
 export default function RootLayout({
@@ -27,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} bg-background`}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={`${outfit.variable} dark bg-background`}>
+      <body className="font-sans antialiased bg-background text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

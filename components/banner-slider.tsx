@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { BANNERS } from '@/lib/site-data'
+import { ChevronLeft, ChevronRight, Phone, ArrowRight, ShieldCheck, Flame, Award, Wrench } from 'lucide-react'
+import { BANNERS, COMPANY } from '@/lib/site-data'
 
 export function BannerSlider() {
   const [index, setIndex] = useState(0)
@@ -14,53 +14,76 @@ export function BannerSlider() {
   const prev = useCallback(() => setIndex((i) => (i - 1 + count) % count), [count])
 
   useEffect(() => {
-    const id = setInterval(next, 6000)
+    const id = setInterval(next, 6500)
     return () => clearInterval(id)
   }, [next])
 
   return (
-    <section aria-label="Featured banners" className="relative">
-      <div className="relative h-[440px] w-full overflow-hidden bg-brand-navy sm:h-[520px] lg:h-[600px]">
+    <section aria-label="Hero showcase" className="relative bg-[#090d16] overflow-hidden">
+      <div className="relative h-[540px] w-full sm:h-[600px] lg:h-[680px]">
         {BANNERS.map((banner, i) => (
           <div
             key={banner.image}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              i === index ? 'opacity-100' : 'pointer-events-none opacity-0'
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              i === index ? 'opacity-100 z-10' : 'pointer-events-none opacity-0 z-0'
             }`}
             aria-hidden={i !== index}
           >
             <Image
-              src={banner.image || '/placeholder.svg'}
+              src={banner.image}
               alt={banner.title}
               fill
               priority={i === 0}
               sizes="100vw"
-              className="object-cover"
+              className="object-cover scale-105 transition-transform duration-10000 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/60 to-brand-navy/10" />
-            <div className="relative mx-auto flex h-full max-w-7xl items-center px-4">
-              <div className="max-w-xl text-primary-foreground">
-                <span className="inline-block bg-brand-red px-3 py-1 text-xs font-semibold uppercase tracking-wider">
-                  {banner.eyebrow}
-                </span>
-                <h1 className="mt-4 text-3xl font-bold leading-tight text-balance sm:text-4xl lg:text-5xl">
+            {/* Cinematic Multi-layer Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#090d16] via-[#090d16]/85 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#090d16] via-transparent to-[#090d16]/60" />
+
+            <div className="relative mx-auto flex h-full max-w-7xl items-center px-4 sm:px-6">
+              <div className="max-w-2xl text-white">
+                {/* Brand Badge */}
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-[#0b101c]/90 px-3.5 py-1 text-xs font-bold text-amber-400 backdrop-blur-md shadow-[0_0_15px_rgba(255,85,0,0.25)]">
+                  <Flame className="size-3.5 text-brand-orange animate-pulse" />
+                  <span className="uppercase tracking-wider">{banner.tag}</span>
+                </div>
+
+                <h1 className="mt-4 text-3xl font-black leading-tight sm:text-5xl lg:text-6xl text-balance tracking-tight text-white drop-shadow-md">
                   {banner.title}
                 </h1>
-                <p className="mt-4 text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
+
+                <p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg lg:text-xl drop-shadow">
                   {banner.description}
                 </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href="#products"
-                    className="inline-flex items-center bg-background px-6 py-3 text-sm font-semibold text-brand-navy transition-opacity hover:opacity-90"
-                  >
-                    Browse Products
-                  </a>
+
+                {/* Badges / Highlights */}
+                <div className="mt-6 flex flex-wrap gap-4 text-xs sm:text-sm text-slate-300">
+                  <div className="flex items-center gap-1.5 bg-slate-900/80 border border-slate-700/80 px-3 py-1.5 rounded">
+                    <ShieldCheck className="size-4 text-brand-orange" />
+                    <span>Heavy Load Structural Certified</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-slate-900/80 border border-slate-700/80 px-3 py-1.5 rounded">
+                    <Wrench className="size-4 text-amber-400" />
+                    <span>Turnkey Erection & Fitting</span>
+                  </div>
+                </div>
+
+                {/* CTAs */}
+                <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
                     href="#contact"
-                    className="inline-flex items-center border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:border-brand-red hover:text-brand-red"
+                    className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-brand-orange to-amber-500 px-6 py-3.5 text-sm font-bold text-white shadow-[0_0_25px_rgba(255,85,0,0.5)] transition-all hover:shadow-[0_0_35px_rgba(255,85,0,0.8)] hover:scale-105 active:scale-95"
                   >
-                    Get a Quote
+                    <span>Request Engineering RFQ</span>
+                    <ArrowRight className="size-4" />
+                  </a>
+                  <a
+                    href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
+                    className="inline-flex items-center gap-2 rounded-md border border-slate-600 bg-slate-900/90 px-5 py-3.5 text-sm font-semibold text-slate-200 backdrop-blur-md transition-colors hover:border-brand-orange hover:text-white"
+                  >
+                    <Phone className="size-4 text-brand-orange" />
+                    <span>Call Fabricator</span>
                   </a>
                 </div>
               </div>
@@ -73,30 +96,30 @@ export function BannerSlider() {
           type="button"
           onClick={prev}
           aria-label="Previous banner"
-          className="absolute left-3 top-1/2 z-10 -translate-y-1/2 bg-background/90 p-2 text-brand-navy transition-colors hover:bg-brand-red hover:text-primary-foreground"
+          className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-2.5 text-slate-300 backdrop-blur-md transition-all hover:border-brand-orange hover:bg-brand-orange hover:text-white"
         >
-          <ChevronLeft className="size-6" />
+          <ChevronLeft className="size-5 sm:size-6" />
         </button>
         <button
           type="button"
           onClick={next}
           aria-label="Next banner"
-          className="absolute right-3 top-1/2 z-10 -translate-y-1/2 bg-background/90 p-2 text-brand-navy transition-colors hover:bg-brand-red hover:text-primary-foreground"
+          className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-2.5 text-slate-300 backdrop-blur-md transition-all hover:border-brand-orange hover:bg-brand-orange hover:text-white"
         >
-          <ChevronRight className="size-6" />
+          <ChevronRight className="size-5 sm:size-6" />
         </button>
 
-        {/* Pagination */}
-        <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {/* Pagination indicators */}
+        <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2.5">
           {BANNERS.map((banner, i) => (
             <button
               key={banner.image}
               type="button"
               onClick={() => goTo(i)}
-              aria-label={`Go to banner ${i + 1}`}
+              aria-label={`Go to slide ${i + 1}`}
               aria-current={i === index}
-              className={`h-1.5 w-8 transition-colors ${
-                i === index ? 'bg-brand-red' : 'bg-background/60 hover:bg-background'
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === index ? 'w-8 bg-brand-orange shadow-[0_0_10px_#ff5500]' : 'w-2.5 bg-slate-600/80 hover:bg-slate-400'
               }`}
             />
           ))}
