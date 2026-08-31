@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Mail, Phone, MapPin, Menu, X, ShieldCheck, Flame } from 'lucide-react'
 import { COMPANY, NAV_LINKS } from '@/lib/site-data'
 
@@ -9,7 +10,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header id="home" className="sticky top-0 z-50 bg-[#090d16]/95 backdrop-blur-md border-b border-border/80 transition-all">
+    <header id="home" className="sticky top-0 z-40 bg-[#090d16]/95 backdrop-blur-md border-b border-border/80 transition-all">
       {/* Top Utility Bar */}
       <div className="bg-[#05080e] border-b border-white/5 text-xs text-slate-300">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 sm:flex-row sm:items-center sm:justify-between">
@@ -45,7 +46,7 @@ export function SiteHeader() {
       {/* Main Nav */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-3.5">
         {/* Brand with Logo */}
-        <a href="#home" className="group flex items-center gap-3.5">
+        <Link href="/" className="group flex items-center gap-3.5">
           <div className="relative size-12 sm:size-14 rounded-full overflow-hidden border-2 border-brand-orange/70 p-0.5 bg-[#0b101c] shadow-[0_0_15px_rgba(255,85,0,0.35)] transition-transform duration-300 group-hover:scale-105">
             <Image
               src="/cesf-logo.webp"
@@ -66,30 +67,30 @@ export function SiteHeader() {
               BUILD • SHAPE • STRONGER
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-slate-300 transition-colors hover:text-brand-orange relative py-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-brand-orange after:transition-all hover:after:w-full"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-brand-orange to-amber-500 px-5 py-2.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(255,85,0,0.4)] transition-all hover:shadow-[0_0_25px_rgba(255,85,0,0.7)] hover:brightness-110 active:scale-95"
           >
             <Mail className="size-4" aria-hidden="true" />
             Get Instant Quote
-          </a>
+          </Link>
         </div>
 
         {/* Mobile menu trigger */}
@@ -112,14 +113,14 @@ export function SiteHeader() {
         >
           <div className="flex flex-col gap-2">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="rounded-md px-3 py-2.5 text-base font-medium text-slate-200 hover:bg-slate-800/80 hover:text-brand-orange transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="pt-3 mt-2 border-t border-slate-800 flex flex-col gap-2.5">
               <a
@@ -129,14 +130,14 @@ export function SiteHeader() {
                 <Phone className="size-4 text-brand-orange" />
                 Call {COMPANY.phone}
               </a>
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 onClick={() => setOpen(false)}
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-brand-orange to-amber-500 px-5 py-3 text-sm font-bold text-white shadow-lg"
               >
                 <Mail className="size-4" aria-hidden="true" />
                 Get Instant Quote
-              </a>
+              </Link>
             </div>
           </div>
         </nav>

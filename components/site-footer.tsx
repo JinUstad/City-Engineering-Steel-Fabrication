@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Mail, MapPin, Phone, ShieldCheck, Flame, ArrowUp } from 'lucide-react'
 import { COMPANY, NAV_LINKS, PRODUCTS } from '@/lib/site-data'
 
@@ -31,7 +32,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4 sm:px-6">
         {/* Brand info */}
         <div className="sm:col-span-2 lg:col-span-1">
-          <a href="#home" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="relative size-12 rounded-full overflow-hidden border border-brand-orange/80 bg-[#0b101c] p-0.5">
               <Image
                 src="/cesf-logo.webp"
@@ -48,7 +49,7 @@ export function SiteFooter() {
                 BUILD • SHAPE • STRONGER
               </span>
             </div>
-          </a>
+          </Link>
 
           <p className="mt-4 text-xs leading-relaxed text-slate-400">
             {COMPANY.fullName}. Leading fabricators of heavy structural steel, industrial PEB sheds, CNC fiber laser cutting, and architectural metal assemblies since {COMPANY.founded}.
@@ -66,12 +67,12 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-xs sm:text-sm">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="text-slate-400 transition-colors hover:text-brand-orange"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -83,12 +84,12 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-xs sm:text-sm">
             {PRODUCTS.map((product) => (
               <li key={product.name}>
-                <a
-                  href="#products"
+                <Link
+                  href="/#products"
                   className="text-slate-400 transition-colors hover:text-brand-orange"
                 >
                   {product.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -138,13 +139,13 @@ export function SiteFooter() {
           </p>
           <div className="flex items-center gap-4">
             <span>New Delhi, India</span>
-            <a
-              href="#home"
+            <Link
+              href="/#home"
               className="inline-flex items-center gap-1 text-slate-400 hover:text-brand-orange transition-colors"
             >
               <span>Back to top</span>
               <ArrowUp className="size-3" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

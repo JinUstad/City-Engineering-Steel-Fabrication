@@ -2,7 +2,7 @@
 
 import type { FormEvent } from 'react'
 import { useState } from 'react'
-import { Mail, MapPin, Phone, MessageSquare, Send, Clock, ShieldCheck } from 'lucide-react'
+import { Mail, MapPin, Phone, MessageSquare, Send, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react'
 import { COMPANY, PRODUCTS } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
 
@@ -13,9 +13,11 @@ export function ContactSection() {
   const [category, setCategory] = useState('Heavy Structural Steel Fabrication')
   const [tonnage, setTonnage] = useState('')
   const [message, setMessage] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    setSubmitted(true)
     const subject = encodeURIComponent(`[RFQ Inquiry] - ${category} from ${name || 'Client'}`)
     const body = encodeURIComponent(
       `RFQ Details:\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nCategory: ${category}\nEstimated Tonnage/Scope: ${tonnage || 'N/A'}\n\nProject Requirements:\n${message}`
@@ -27,12 +29,12 @@ export function ContactSection() {
     'w-full rounded-md border border-slate-700 bg-slate-900/90 px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-slate-500 focus:border-brand-orange focus:ring-1 focus:ring-brand-orange'
 
   return (
-    <section id="contact" className="scroll-mt-24 bg-[#090d16] py-16 sm:py-24">
+    <section id="contact-form" className="scroll-mt-24 bg-[#090d16] py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Direct RFQ & Contact"
-          title="Get a Fast Engineering Quote for Your Project"
-          description="Send us your structural drawings, BOQ, or project specifications. Our engineering team in New Delhi will provide estimate pricing and turnaround time within 24 hours."
+          eyebrow="Direct RFQ & Quotation"
+          title="Submit Project Requirements for Engineering Estimate"
+          description="Send us your structural drawings, BOQ, or project specifications. Our engineering team in New Delhi will review and respond with estimate pricing within 24 hours."
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
@@ -41,12 +43,12 @@ export function ContactSection() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-md bg-brand-orange/20 border border-brand-orange/40 px-3 py-1 text-xs font-bold text-amber-400">
                 <ShieldCheck className="size-3.5" />
-                <span>Immediate Technical Consultation</span>
+                <span>Direct Chief Engineer Desk</span>
               </div>
               
-              <h3 className="mt-4 text-2xl font-bold text-white">Workshop & Head Office</h3>
+              <h3 className="mt-4 text-2xl font-bold text-white">Works & Office Location</h3>
               <p className="mt-2 text-sm text-slate-300">
-                Visit our New Delhi fabrication yard or reach our engineering estimating team directly:
+                Visit our New Delhi heavy steel fabrication workshop or speak directly with our engineering estimation team:
               </p>
 
               <ul className="mt-8 space-y-6 text-sm">
@@ -55,7 +57,7 @@ export function ContactSection() {
                     <MapPin className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Works & Fabrication Plant</p>
+                    <p className="font-bold text-white">Fabrication Workshop</p>
                     <address className="mt-1 not-italic text-xs sm:text-sm text-slate-300 leading-relaxed">
                       {COMPANY.addressLines.map((line) => (
                         <span key={line} className="block">
@@ -71,21 +73,13 @@ export function ContactSection() {
                     <Phone className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Call Engineering Desk</p>
+                    <p className="font-bold text-white">Direct Phone Line</p>
                     <a
                       href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
-                      className="mt-1 block font-mono text-sm text-amber-400 hover:underline"
+                      className="mt-1 block font-mono text-base font-bold text-amber-400 hover:underline"
                     >
                       {COMPANY.phone}
                     </a>
-                    {COMPANY.altPhone && (
-                      <a
-                        href={`tel:${COMPANY.altPhone.replace(/\s/g, '')}`}
-                        className="block font-mono text-xs text-slate-400 hover:text-slate-200"
-                      >
-                        Alt: {COMPANY.altPhone}
-                      </a>
-                    )}
                   </div>
                 </li>
 
@@ -94,10 +88,10 @@ export function ContactSection() {
                     <Mail className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Official RFQ Mail</p>
+                    <p className="font-bold text-white">Official Email Address</p>
                     <a
                       href={`mailto:${COMPANY.email}`}
-                      className="mt-1 block text-sm text-amber-400 hover:underline"
+                      className="mt-1 block text-sm font-semibold text-amber-400 hover:underline"
                     >
                       {COMPANY.email}
                     </a>
@@ -109,8 +103,8 @@ export function ContactSection() {
                     <Clock className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Operating Hours</p>
-                    <p className="mt-0.5 text-xs text-slate-300">Mon - Sat: 8:30 AM - 7:30 PM</p>
+                    <p className="font-bold text-white">Working Hours</p>
+                    <p className="mt-0.5 text-xs text-slate-300">Monday - Saturday: 8:30 AM - 7:30 PM</p>
                   </div>
                 </li>
               </ul>
@@ -123,13 +117,13 @@ export function ContactSection() {
                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-slate-800 border border-slate-700 py-3 text-xs sm:text-sm font-bold text-white hover:bg-slate-700 transition-colors"
               >
                 <Phone className="size-4 text-brand-orange" />
-                <span>Call Now</span>
+                <span>Call {COMPANY.phone}</span>
               </a>
               <a
-                href={`https://wa.me/${COMPANY.phone.replace(/\D/g, '')}`}
+                href={`https://wa.me/${COMPANY.phoneClean}?text=Hello%20CESF%20Fabrication,%20I%20have%20an%20engineering%20inquiry`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-emerald-600/90 hover:bg-emerald-500 py-3 text-xs sm:text-sm font-bold text-white transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-[#25D366] hover:brightness-110 py-3 text-xs sm:text-sm font-bold text-white transition-colors shadow-lg"
               >
                 <MessageSquare className="size-4" />
                 <span>WhatsApp</span>
@@ -139,10 +133,17 @@ export function ContactSection() {
 
           {/* Form Column */}
           <div className="lg:col-span-7 rounded-2xl border border-slate-800 bg-[#101726] p-6 sm:p-8 shadow-xl">
-            <h3 className="text-xl font-bold text-white">Submit Request for Quotation (RFQ)</h3>
+            <h3 className="text-xl font-bold text-white">Request for Quotation (RFQ) Form</h3>
             <p className="mt-1.5 text-xs sm:text-sm text-slate-400">
-              Provide project scope, required delivery timeline, or attach CAD drawing specs via mail.
+              Provide project scope, required delivery timeline, or request a call from our structural design team.
             </p>
+
+            {submitted && (
+              <div className="mt-4 rounded-md bg-emerald-950/80 border border-emerald-600 p-4 text-emerald-200 text-sm flex items-center gap-3">
+                <CheckCircle2 className="size-5 text-emerald-400 shrink-0" />
+                <span>Thank you! Your inquiry is being sent to our engineering team at {COMPANY.email}.</span>
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -171,7 +172,7 @@ export function ContactSection() {
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 93184 00632"
                     className={inputClasses}
                   />
                 </div>
@@ -231,7 +232,7 @@ export function ContactSection() {
 
               <div>
                 <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-slate-300">
-                  Project Specifications & Notes *
+                  Project Specifications & Drawing Notes *
                 </label>
                 <textarea
                   id="message"

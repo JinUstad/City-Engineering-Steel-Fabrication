@@ -4,9 +4,9 @@ export const COMPANY = {
   tagline: 'BUILD • SHAPE • STRONGER',
   subTagline: 'Heavy Structural Steel, PEB Sheds & Precision Metal Fabrication',
   founded: '2008',
-  email: 'info@cesffabrication.com',
-  phone: '+91 98112 34567',
-  altPhone: '+91 98991 23456',
+  email: 'cityengineering0008@gmail.com',
+  phone: '+91 93184 00632',
+  phoneClean: '919318400632',
   addressLines: [
     'City Engineering & Steel Fabrication',
     'Plot No. 48, Industrial Area Phase-II',
@@ -16,11 +16,11 @@ export const COMPANY = {
 }
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services & Products', href: '#products' },
-  { label: 'Featured Projects', href: '#featured' },
-  { label: 'Our Capabilities', href: '#about' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'Home', href: '/#home' },
+  { label: 'Services & Products', href: '/#products' },
+  { label: 'Work Gallery', href: '/#gallery' },
+  { label: 'Capabilities', href: '/#about' },
+  { label: 'Contact Us', href: '/contact' },
 ]
 
 export type Banner = {
@@ -111,34 +111,124 @@ export const PRODUCTS: Product[] = [
   },
 ]
 
-export const FEATURED: Product[] = [
+export type GalleryItem = {
+  id: number
+  title: string
+  category: string
+  image: string
+  description: string
+  location?: string
+  scope?: string
+}
+
+export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    name: 'Heavy-Duty Industrial PEB Structure',
-    category: 'Mega Project',
+    id: 1,
+    title: 'Certified Heavy Structural I-Beam Welding',
+    category: 'Heavy Structural',
+    image: '/banner-welding.webp',
+    description: 'High-amperage MIG fillet welding on 40mm thick structural steel beams with 100% NDT radiography test approval.',
+    location: 'CESF Workshop, New Delhi',
+    scope: '450 MT Structural Steelwork',
+  },
+  {
+    id: 2,
+    title: 'High-Span Pre-Engineered Logistics Warehouse',
+    category: 'PEB Sheds',
     image: '/banner-shed.webp',
-    description: '50,000+ sq.ft industrial logistics warehouse engineered with high-strength portal frames and insulated roof panels.',
-    features: ['50,000+ Sq. Ft.', 'Full Erection Done', 'Turnkey Handover'],
+    description: '45,000 sq.ft clear-span PEB industrial warehouse with custom built-up portal columns, purlins, and color-coated roofing.',
+    location: 'Greater Noida Industrial Hub',
+    scope: 'Design, Fabrication & Erection',
   },
   {
-    name: 'High-Pressure Pipeline Spools & Skids',
-    category: 'Specialized',
-    image: '/product-pipe-fabrication.webp',
-    description: 'Custom flanged piping manifolds, modular equipment skids, and heavy pipeline assemblies tested for severe conditions.',
-    features: ['Hydro-tested 150 PSI', '100% NDT Inspected', 'Precision Flange Alignment'],
+    id: 3,
+    title: '6kW CNC Fiber Laser Precision Cutting Bay',
+    category: 'CNC Precision',
+    image: '/banner-laser.webp',
+    description: 'High-speed automated laser cutting for 20mm thick MS & SS machinery plates with micro-burr finish and tight tolerances.',
+    location: 'CNC Laser Division, Phase-II',
+    scope: '±0.05mm Precision Batch Run',
   },
   {
-    name: 'Architectural Commercial Steel Staircase',
-    category: 'Showcase',
-    image: '/product-steel-staircase.webp',
-    description: 'Central floating steel staircase with laser-cut stringers, solid treads, and structural glass railing system.',
-    features: ['Grade 304/316 SS', 'Matte Gunmetal Finish', 'Custom Engineered Fit'],
+    id: 4,
+    title: 'Heavy Crane Runway Girders & Bridge Spans',
+    category: 'Heavy Structural',
+    image: '/gallery-bridge-girder.webp',
+    description: 'Fabrication of 20-Ton overhead crane runway plate girders with reinforced stiffeners and heavy load mounting brackets.',
+    location: 'Heavy Bay, New Delhi',
+    scope: 'Heavy Plate Girder Assembly',
   },
   {
-    name: 'Heavy Industrial Silo Storage Battery',
-    category: 'Heavy Fabrication',
+    id: 5,
+    title: 'Industrial Heavy Duty Mezzanine Platform',
+    category: 'PEB Sheds',
+    image: '/gallery-mezzanine-floor.webp',
+    description: 'Multi-tier structural steel mezzanine flooring with chequered plate decking, safety yellow guardrails, and heavy access stairs.',
+    location: 'Logistics Facility, Delhi NCR',
+    scope: '12,000 Sq.Ft Load Platform',
+  },
+  {
+    id: 6,
+    title: 'Architectural Geometric Canopy & Metal Facade',
+    category: 'Architectural',
+    image: '/gallery-canopy-facade.webp',
+    description: 'Architectural laser-cut structural steel canopy overhang and custom perforated facade for modern commercial exterior.',
+    location: 'Aerocity Commercial Complex',
+    scope: 'Architectural Framing & Facade',
+  },
+  {
+    id: 7,
+    title: 'Stainless Steel Chemical Storage Silos & Tanks',
+    category: 'Heavy Tanks',
     image: '/product-storage-tanks.webp',
-    description: 'Multi-tank industrial bulk storage setup fabricated with polished stainless steel 304L for chemical processing.',
-    features: ['High Capacity Silos', 'Corrosion Shield', 'Automated Discharge'],
+    description: 'Heavy gauge SS 304L vertical storage silos with welded skirt support, conical bottom discharge, and pressure relief nozzles.',
+    location: 'Chemical Plant Yard',
+    scope: '8 x 50,000L Storage Tanks',
+  },
+  {
+    id: 8,
+    title: 'Commercial Floating Steel Spine Staircase',
+    category: 'Architectural',
+    image: '/product-steel-staircase.webp',
+    description: 'Multi-story central architectural floating steel staircase with CNC cut stringers and toughened glass clamp railings.',
+    location: 'Corporate HQ, Gurugram',
+    scope: 'Luxury Architectural Fitout',
+  },
+  {
+    id: 9,
+    title: 'High-Pressure Process Pipeline Spools & Headers',
+    category: 'Piping & Skids',
+    image: '/product-pipe-fabrication.webp',
+    description: 'Flanged carbon steel and stainless steel pipe spools welded under ASME Section IX with 150 PSI hydro-testing.',
+    location: 'CESF Fabrication Bay A2',
+    scope: 'Class 300 Pipeline Assemblies',
+  },
+  {
+    id: 10,
+    title: 'Heavy Structural Column & I-Beam Staging Yard',
+    category: 'Heavy Structural',
+    image: '/product-structural-steel.webp',
+    description: 'Factory staging yard with zinc chromate primed heavy structural columns ready for site delivery and crane erection.',
+    location: 'Assembly Staging Yard',
+    scope: 'Over 800 Metric Tons Stock',
+  },
+  {
+    id: 11,
+    title: 'Designer Motorized Laser-Cut Security Gates',
+    category: 'Architectural',
+    image: '/product-gates-grills.webp',
+    description: 'Heavy duty architectural entrance gate featuring precision laser cut geometric motifs with weather-proof PU coating.',
+    location: 'Premium Estate, South Delhi',
+    scope: 'Custom Automated Gate System',
+  },
+  {
+    id: 12,
+    title: '25,000 Sq.Ft Modern Heavy Fabrication Plant',
+    category: 'Capabilities',
+    image: '/about-factory.webp',
+    description: 'Our certified New Delhi manufacturing facility equipped with dual 50-Ton overhead cranes and dedicated welding bays.',
+    location: 'New Delhi Works',
+    scope: 'Manufacturing Infrastructure',
   },
 ]
 
