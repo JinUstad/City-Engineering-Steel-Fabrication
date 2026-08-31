@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { ArrowUpRight, Award, Sparkles } from 'lucide-react'
-import { FEATURED, COMPANY } from '@/lib/site-data'
+import Link from 'next/link'
+import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { FEATURED, type Product } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
 
 export function FeaturedProducts() {
@@ -13,17 +14,17 @@ export function FeaturedProducts() {
             title="Engineered Landmark Steel Installations"
             description="From high-span factory warehouses to architectural staircases and high-pressure chemical storage tanks."
           />
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex w-max items-center gap-2 rounded-md bg-gradient-to-r from-brand-orange to-amber-500 px-5 py-3 text-sm font-bold text-white shadow-[0_0_20px_rgba(255,85,0,0.3)] hover:shadow-[0_0_30px_rgba(255,85,0,0.6)] transition-all hover:scale-105"
           >
             <Sparkles className="size-4" />
             <span>Request Full Project Portfolio</span>
-          </a>
+          </Link>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURED.map((project) => (
+          {FEATURED.map((project: Product) => (
             <article
               key={project.name}
               className="group flex flex-col rounded-xl overflow-hidden border border-slate-800 bg-[#0f1624] shadow-md transition-all duration-300 hover:border-amber-500/50 hover:shadow-xl"
@@ -52,7 +53,7 @@ export function FeaturedProducts() {
                 {/* Badges / Chips */}
                 {project.features && (
                   <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-slate-800">
-                    {project.features.map((f) => (
+                    {project.features.map((f: string) => (
                       <span key={f} className="rounded bg-slate-800/90 border border-slate-700 px-2 py-0.5 text-[10px] font-medium text-amber-300">
                         {f}
                       </span>
@@ -60,13 +61,13 @@ export function FeaturedProducts() {
                   </div>
                 )}
 
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-orange hover:text-white transition-colors"
                 >
                   <span>Discuss Similar Project</span>
                   <ArrowUpRight className="size-3.5" />
-                </a>
+                </Link>
               </div>
             </article>
           ))}
@@ -75,3 +76,4 @@ export function FeaturedProducts() {
     </section>
   )
 }
+

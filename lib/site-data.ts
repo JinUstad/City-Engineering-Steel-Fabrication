@@ -118,6 +118,8 @@ export const PRODUCTS: Product[] = [
   },
 ]
 
+export const FEATURED: Product[] = PRODUCTS.slice(0, 4)
+
 export type GalleryItem = {
   id: number
   title: string
