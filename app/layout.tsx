@@ -10,12 +10,12 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'CESF Fabrication | Heavy Structural Steel & Metal Engineering New Delhi',
+  title: 'CESF Fabrication | Heavy Structural Steel & Metal Engineering Ghaziabad (U.P)',
   description:
-    'CESF (City Engineering & Steel Fabrication) - BUILD • SHAPE • STRONGER. Leading manufacturers of heavy structural steel, industrial PEB sheds, CNC fiber laser cutting, architectural metalwork & pressure vessels in New Delhi.',
+    'CESF (City Engineering & Steel Fabrication) - BUILD • SHAPE • STRONGER. Leading manufacturers of heavy structural steel, industrial PEB sheds, CNC fiber laser cutting, architectural metalwork & pressure vessels in Ghaziabad (U.P).',
   icons: {
-    icon: '/cesf-logo.webp',
-    apple: '/cesf-logo.webp',
+    icon: '/updated-logo-transparent.png',
+    apple: '/updated-logo-transparent.png',
   },
 }
 

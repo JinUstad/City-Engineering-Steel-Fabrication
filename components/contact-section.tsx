@@ -48,7 +48,7 @@ export function ContactSection() {
               
               <h3 className="mt-4 text-2xl font-bold text-white">Works & Office Location</h3>
               <p className="mt-2 text-sm text-slate-300">
-                Visit our New Delhi heavy steel fabrication workshop or speak directly with our engineering estimation team:
+                Visit our Ghaziabad (U.P) heavy steel fabrication workshop or speak directly with our engineering estimation team:
               </p>
 
               <ul className="mt-8 space-y-6 text-sm">
@@ -70,16 +70,37 @@ export function ContactSection() {
 
                 <li className="flex items-start gap-4">
                   <div className="size-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-orange shrink-0">
+                    <ShieldCheck className="size-5" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-white">GST Registration</p>
+                    <p className="mt-1 font-mono text-sm font-bold text-amber-400">
+                      GSTIN: {COMPANY.gstNumber}
+                    </p>
+                  </div>
+                </li>
+
+                <li className="flex items-start gap-4">
+                  <div className="size-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-orange shrink-0">
                     <Phone className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Direct Phone Line</p>
-                    <a
-                      href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
-                      className="mt-1 block font-mono text-base font-bold text-amber-400 hover:underline"
-                    >
-                      {COMPANY.phone}
-                    </a>
+                    <p className="font-bold text-white">Direct Phone Lines</p>
+                    <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <a
+                        href={`tel:${COMPANY.phoneClean}`}
+                        className="font-mono text-sm sm:text-base font-bold text-amber-400 hover:underline"
+                      >
+                        {COMPANY.phone}
+                      </a>
+                      <span className="text-slate-600">|</span>
+                      <a
+                        href={`tel:${COMPANY.phone2Clean}`}
+                        className="font-mono text-sm sm:text-base font-bold text-amber-400 hover:underline"
+                      >
+                        {COMPANY.phone2}
+                      </a>
+                    </div>
                   </div>
                 </li>
 
@@ -113,17 +134,24 @@ export function ContactSection() {
             {/* Quick Action Button */}
             <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap gap-3">
               <a
-                href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
+                href={`tel:${COMPANY.phoneClean}`}
                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-slate-800 border border-slate-700 py-3 text-xs sm:text-sm font-bold text-white hover:bg-slate-700 transition-colors"
               >
                 <Phone className="size-4 text-brand-orange" />
                 <span>Call {COMPANY.phone}</span>
               </a>
               <a
+                href={`tel:${COMPANY.phone2Clean}`}
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-slate-800 border border-slate-700 py-3 text-xs sm:text-sm font-bold text-white hover:bg-slate-700 transition-colors"
+              >
+                <Phone className="size-4 text-amber-400" />
+                <span>Call {COMPANY.phone2}</span>
+              </a>
+              <a
                 href={`https://wa.me/${COMPANY.phoneClean}?text=Hello%20CESF%20Fabrication,%20I%20have%20an%20engineering%20inquiry`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-[#25D366] hover:brightness-110 py-3 text-xs sm:text-sm font-bold text-white transition-colors shadow-lg"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-[#25D366] hover:brightness-110 py-3 px-6 text-xs sm:text-sm font-bold text-white transition-colors shadow-lg"
               >
                 <MessageSquare className="size-4" />
                 <span>WhatsApp</span>

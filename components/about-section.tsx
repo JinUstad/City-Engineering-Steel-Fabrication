@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Check, ShieldCheck, Flame, Cpu, Award } from 'lucide-react'
+import { Check, Award } from 'lucide-react'
 import { COMPANY, STATS, CAPABILITIES } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
 
@@ -17,15 +17,16 @@ export function AboutSection() {
     <section id="about" className="scroll-mt-24 bg-[#0b101c] py-16 sm:py-24 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Workshop Image & Badges */}
+          {/* Workshop / Founder Image & Badges */}
           <div className="relative">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border-2 border-slate-700 bg-slate-900 shadow-2xl">
               <Image
-                src="/about-factory.webp"
-                alt="CESF Heavy Steel Fabrication Workshop in New Delhi"
+                src="/Rihan Saifi About image.png"
+                alt="Rihan Saifi - CESF Heavy Steel Fabrication Workshop"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
 
@@ -36,8 +37,8 @@ export function AboutSection() {
                     <Award className="size-6" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-white">ISO 9001:2015</h4>
-                    <p className="text-xs text-amber-300">Certified Quality Management</p>
+                    <h4 className="text-sm font-bold text-white tracking-wide">Rihan Saifi</h4>
+                    <p className="text-xs font-semibold text-amber-300">Founder & Chief Engineer</p>
                   </div>
                 </div>
               </div>
@@ -51,7 +52,7 @@ export function AboutSection() {
           <div>
             <SectionHeading
               eyebrow="About CESF Fabrication"
-              title="New Delhi's Trusted Heavy Steel Engineering Fabricator"
+              title="Trusted Heavy Steel Engineering & Fabrication Partner"
             />
             
             <p className="mt-4 text-base leading-relaxed text-slate-300">
@@ -59,7 +60,7 @@ export function AboutSection() {
             </p>
 
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
-              Our state-of-the-art facility in New Delhi combines advanced fabrication machinery with master certified craftsmen to deliver structural strength that exceeds industrial benchmarks.
+              Our state-of-the-art facility at NH-9 Masuri, Ghaziabad (U.P) combines advanced fabrication machinery with master certified craftsmen to deliver structural strength that exceeds industrial benchmarks.
             </p>
 
             {/* Feature Points */}

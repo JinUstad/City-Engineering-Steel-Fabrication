@@ -10,12 +10,6 @@ export function FloatingContact() {
 
   return (
     <div className="fixed bottom-6 right-5 sm:right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto select-none">
-      {/* Floating Info Pill */}
-      <div className="hidden sm:flex items-center gap-2 rounded-full border border-slate-700/90 bg-[#0b101c]/95 px-3 py-1 text-[11px] font-bold text-amber-300 shadow-2xl backdrop-blur-md">
-        <Flame className="size-3 text-brand-orange animate-pulse" />
-        <span>Direct Help: +91 93184 00632</span>
-      </div>
-
       {/* Vertical Stack of Floating Buttons */}
       <div className="flex flex-col items-center gap-3">
         {/* WhatsApp Floating Button (Top in stack) */}

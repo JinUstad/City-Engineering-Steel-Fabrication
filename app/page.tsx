@@ -1,11 +1,12 @@
 import { SiteHeader } from '@/components/site-header'
 import { BannerSlider } from '@/components/banner-slider'
 import { ProductsGrid } from '@/components/products-grid'
-import { WorkGallery } from '@/components/work-gallery'
 import { AboutSection } from '@/components/about-section'
+import { ServicesSection } from '@/components/services-section'
+import { ArchitecturalFabricationSection } from '@/components/architectural-fabrication-section'
 import { SiteFooter } from '@/components/site-footer'
 import { FloatingContact } from '@/components/floating-contact'
-import { Mail, Phone, ArrowRight, ShieldCheck, Flame, Sparkles } from 'lucide-react'
+import { Mail, Phone, ArrowRight, Flame } from 'lucide-react'
 import { COMPANY } from '@/lib/site-data'
 import Link from 'next/link'
 
@@ -18,7 +19,7 @@ export default function Page() {
         {/* Hero Banners */}
         <BannerSlider />
 
-        {/* Services & Capabilities Section with Link to /products */}
+        {/* 6 Heavy Structural Steel & Metal Fabrication Capabilities */}
         <section className="relative">
           <ProductsGrid />
           <div className="bg-[#0b101c] pb-12 text-center">
@@ -28,20 +29,6 @@ export default function Page() {
             >
               <span>View Full Services & Specifications</span>
               <ArrowRight className="size-4" />
-            </Link>
-          </div>
-        </section>
-
-        {/* Interactive Work Gallery Section with Link to /gallery */}
-        <section className="relative">
-          <WorkGallery />
-          <div className="bg-[#070b13] pb-12 text-center">
-            <Link
-              href="/gallery"
-              className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900/90 px-6 py-3 text-xs sm:text-sm font-bold text-amber-400 hover:border-brand-orange hover:text-white transition-all shadow-md"
-            >
-              <span>Explore Complete 12+ Projects Gallery</span>
-              <Sparkles className="size-4" />
             </Link>
           </div>
         </section>
@@ -60,7 +47,13 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Quick CTA to Dedicated Contact Page (No Form on Home Page) */}
+        {/* 4 Core Services: Interior Design, Modular Kitchen, Office Furniture, Bed Room Furniture */}
+        <ServicesSection />
+
+        {/* Architectural & Specialized Fabrication: UPVC, Ceiling, MS Shutters, Column Box, MS Grating */}
+        <ArchitecturalFabricationSection />
+
+        {/* Quick CTA to Dedicated Contact Page */}
         <section className="relative overflow-hidden bg-gradient-to-r from-[#0d1524] via-[#101b2e] to-[#0d1524] py-16 border-t border-slate-800">
           <div className="absolute -top-24 -left-24 size-72 rounded-full bg-brand-orange/10 blur-3xl pointer-events-none" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center">
@@ -88,7 +81,7 @@ export default function Page() {
               </Link>
 
               <a
-                href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
+                href={`tel:${COMPANY.phoneClean}`}
                 className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900/90 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:border-brand-orange hover:text-white transition-colors"
               >
                 <Phone className="size-4 text-brand-orange" />
@@ -99,9 +92,7 @@ export default function Page() {
         </section>
       </main>
 
-      {/* Floating Call & WhatsApp Buttons in Vertical Stack */}
       <FloatingContact />
-
       <SiteFooter />
     </div>
   )

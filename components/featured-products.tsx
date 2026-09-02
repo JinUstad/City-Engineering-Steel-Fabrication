@@ -1,10 +1,24 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight, Sparkles } from 'lucide-react'
-import { FEATURED, type Product } from '@/lib/site-data'
+import { ArrowUpRight, Sparkles, Images } from 'lucide-react'
+import { PRODUCTS, type Product } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
+import { ImageCarouselModal } from '@/components/image-carousel-modal'
 
 export function FeaturedProducts() {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const featured = PRODUCTS.slice(0, 4)
+
+  const handleOpenGallery = (project: Product) => {
+    setSelectedProduct(project)
+    setIsModalOpen(true)
+  }
+
   return (
     <section id="featured" className="scroll-mt-24 bg-[#090d16] py-16 sm:py-24 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -24,56 +38,94 @@ export function FeaturedProducts() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURED.map((project: Product) => (
-            <article
-              key={project.name}
-              className="group flex flex-col rounded-xl overflow-hidden border border-slate-800 bg-[#0f1624] shadow-md transition-all duration-300 hover:border-amber-500/50 hover:shadow-xl"
-            >
-              <div className="relative aspect-square overflow-hidden bg-slate-900">
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1624] via-transparent to-black/30" />
-                <span className="absolute right-3 top-3 rounded bg-amber-500/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-black shadow">
-                  {project.category}
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-base font-bold text-white leading-snug group-hover:text-amber-400 transition-colors">
-                  {project.name}
-                </h3>
-                <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-300">
-                  {project.description}
-                </p>
+          {featured.map((project: Product) => {
+            const photoCount = project.images?.length || 1
 
-                {/* Badges / Chips */}
-                {project.features && (
-                  <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-slate-800">
-                    {project.features.map((f: string) => (
-                      <span key={f} className="rounded bg-slate-800/90 border border-slate-700 px-2 py-0.5 text-[10px] font-medium text-amber-300">
-                        {f}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                <Link
-                  href="/contact"
-                  className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-orange hover:text-white transition-colors"
+            return (
+              <article
+                key={project.name}
+                className="group flex flex-col rounded-xl overflow-hidden border border-slate-800 bg-[#0f1624] shadow-md transition-all duration-300 hover:border-amber-500/50 hover:shadow-xl"
+              >
+                <div
+                  onClick={() => handleOpenGallery(project)}
+                  className="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer"
+                  title="Click to view all photos in this folder"
                 >
-                  <span>Discuss Similar Project</span>
-                  <ArrowUpRight className="size-3.5" />
-                </Link>
-              </div>
-            </article>
-          ))}
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f1624] via-transparent to-black/30" />
+                  
+                  <span className="absolute left-3 top-3 rounded bg-amber-500/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-black shadow">
+                    {project.category}
+                  </span>
+
+                  <div className="absolute right-3 top-3 flex items-center gap-1 rounded bg-black/75 backdrop-blur-sm border border-white/20 px-2 py-0.5 text-[10px] font-bold text-white">
+                    <Images className="size-3 text-brand-orange" />
+                    <span>{photoCount}</span>
+                  </div>
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 backdrop-blur-[1px]">
+                    <span className="rounded-full bg-brand-orange px-3 py-1.5 text-xs font-bold text-white shadow-lg">
+                      View Photos
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-1 flex-col p-5">
+                  <h3
+                    onClick={() => handleOpenGallery(project)}
+                    className="text-base font-bold text-white leading-snug group-hover:text-amber-400 transition-colors cursor-pointer"
+                  >
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-300">
+                    {project.description}
+                  </p>
+
+                  {/* Badges / Chips */}
+                  {project.features && (
+                    <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-slate-800">
+                      {project.features.map((f: string) => (
+                        <span key={f} className="rounded bg-slate-800/90 border border-slate-700 px-2 py-0.5 text-[10px] font-medium text-amber-300">
+                          {f}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                    <button
+                      type="button"
+                      onClick={() => handleOpenGallery(project)}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-brand-orange hover:text-white transition-colors cursor-pointer"
+                    >
+                      <span>View Gallery ({photoCount})</span>
+                      <ArrowUpRight className="size-3.5" />
+                    </button>
+                    <Link
+                      href="/contact"
+                      className="text-[11px] text-slate-400 hover:text-amber-400"
+                    >
+                      Inquire
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </div>
+
+      <ImageCarouselModal
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   )
 }
-

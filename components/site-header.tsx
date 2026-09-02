@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Menu, X, ShieldCheck, Flame } from 'lucide-react'
+import { Mail, Phone, MapPin, Menu, X, ShieldCheck, Flame, Award } from 'lucide-react'
 import { COMPANY, NAV_LINKS } from '@/lib/site-data'
 
 export function SiteHeader() {
@@ -11,27 +11,42 @@ export function SiteHeader() {
 
   return (
     <header id="home" className="sticky top-0 z-40 bg-[#090d16]/95 backdrop-blur-md border-b border-border/80 transition-all">
-      {/* Top Utility Bar */}
+      {/* Top Utility Bar with Address & GST */}
       <div className="bg-[#05080e] border-b border-white/5 text-xs text-slate-300">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-4 text-slate-400">
-            <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-slate-300">
+            {/* Address */}
+            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs">
               <MapPin className="size-3.5 text-brand-orange shrink-0" aria-hidden="true" />
-              <span>{COMPANY.addressShort}</span>
+              <span className="text-slate-300 font-medium">
+                {COMPANY.address}
+              </span>
             </div>
-            <div className="hidden sm:flex items-center gap-1.5 text-amber-400 font-medium">
-              <ShieldCheck className="size-3.5" />
-              <span>ISO 9001:2015 Certified Fabricator</span>
+
+            {/* GST Number Badge */}
+            <div className="inline-flex items-center gap-1 rounded bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-[10px] sm:text-[11px] font-mono font-bold text-amber-300">
+              <Award className="size-3 text-brand-orange" />
+              <span>GSTIN: {COMPANY.gstNumber}</span>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-            <a
-              href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
-              className="flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors"
-            >
+
+          <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-1">
+            <div className="flex items-center gap-2 text-slate-300">
               <Phone className="size-3.5 text-brand-orange" aria-hidden="true" />
-              <span className="font-semibold text-slate-200">{COMPANY.phone}</span>
-            </a>
+              <a
+                href={`tel:${COMPANY.phoneClean}`}
+                className="font-semibold text-slate-200 hover:text-brand-orange transition-colors"
+              >
+                {COMPANY.phone}
+              </a>
+              <span className="text-slate-600">/</span>
+              <a
+                href={`tel:${COMPANY.phone2Clean}`}
+                className="font-semibold text-slate-200 hover:text-brand-orange transition-colors"
+              >
+                {COMPANY.phone2}
+              </a>
+            </div>
             <a
               href={`mailto:${COMPANY.email}`}
               className="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors"
@@ -44,15 +59,15 @@ export function SiteHeader() {
       </div>
 
       {/* Main Nav */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-3.5">
-        {/* Brand with Logo */}
-        <Link href="/" className="group flex items-center gap-3.5">
-          <div className="relative size-12 sm:size-14 rounded-full overflow-hidden border-2 border-brand-orange/70 p-0.5 bg-[#0b101c] shadow-[0_0_15px_rgba(255,85,0,0.35)] transition-transform duration-300 group-hover:scale-105">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:py-3">
+        {/* Brand with Transparent Logo */}
+        <Link href="/" className="group flex items-center gap-3">
+          <div className="relative size-12 sm:size-14 overflow-hidden transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
             <Image
-              src="/cesf-logo.webp"
+              src="/updated-logo-transparent.png"
               alt="CESF FABRICATION Logo"
               fill
-              className="object-cover"
+              className="object-contain"
               priority
             />
           </div>
@@ -112,6 +127,18 @@ export function SiteHeader() {
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-2">
+            {/* Mobile Address & GST Notice */}
+            <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 text-xs text-slate-300 space-y-1.5 mb-2">
+              <div className="flex items-start gap-1.5">
+                <MapPin className="size-3.5 mt-0.5 text-brand-orange shrink-0" />
+                <span className="text-[11px] leading-relaxed">{COMPANY.address}</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-amber-300 font-mono text-[11px]">
+                <Award className="size-3 text-brand-orange" />
+                <span>GST: {COMPANY.gstNumber}</span>
+              </div>
+            </div>
+
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
@@ -124,7 +151,7 @@ export function SiteHeader() {
             ))}
             <div className="pt-3 mt-2 border-t border-slate-800 flex flex-col gap-2.5">
               <a
-                href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
+                href={`tel:${COMPANY.phoneClean}`}
                 className="flex items-center justify-center gap-2 rounded-md bg-slate-800 border border-slate-700 py-2.5 text-sm font-semibold text-slate-200"
               >
                 <Phone className="size-4 text-brand-orange" />
