@@ -74,12 +74,12 @@ export function BannerSlider() {
           </div>
         ))}
 
-        {/* Controls */}
+        {/* Controls (Hidden on Mobile) */}
         <button
           type="button"
           onClick={prev}
           aria-label="Previous banner"
-          className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-2.5 text-slate-300 backdrop-blur-md transition-all hover:border-brand-orange hover:bg-brand-orange hover:text-white"
+          className="hidden sm:flex absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-2.5 text-slate-300 backdrop-blur-md transition-all hover:border-brand-orange hover:bg-brand-orange hover:text-white items-center justify-center"
         >
           <ChevronLeft className="size-5 sm:size-6" />
         </button>
@@ -87,7 +87,7 @@ export function BannerSlider() {
           type="button"
           onClick={next}
           aria-label="Next banner"
-          className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-2.5 text-slate-300 backdrop-blur-md transition-all hover:border-brand-orange hover:bg-brand-orange hover:text-white"
+          className="hidden sm:flex absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full border border-slate-700 bg-slate-900/80 p-2.5 text-slate-300 backdrop-blur-md transition-all hover:border-brand-orange hover:bg-brand-orange hover:text-white items-center justify-center"
         >
           <ChevronRight className="size-5 sm:size-6" />
         </button>
