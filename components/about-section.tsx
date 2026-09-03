@@ -30,8 +30,8 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
 
-              {/* Floating Badge on Image */}
-              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto rounded-xl border border-white/20 bg-[#090d16]/90 p-4 backdrop-blur-md shadow-xl sm:max-w-xs">
+              {/* Floating Badge on Image (Hidden on Mobile) */}
+              <div className="hidden sm:block absolute sm:bottom-6 sm:left-6 rounded-xl border border-white/20 bg-[#090d16]/90 p-4 backdrop-blur-md shadow-xl sm:max-w-xs">
                 <div className="flex items-center gap-3">
                   <div className="size-11 rounded-lg bg-brand-orange/20 border border-brand-orange flex items-center justify-center text-brand-orange">
                     <Award className="size-6" />

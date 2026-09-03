@@ -10,13 +10,13 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4 sm:px-6">
         {/* Brand info */}
         <div className="sm:col-span-2 lg:col-span-1">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative size-12 overflow-hidden flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative size-12 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900/90 p-1 border border-slate-700 shadow-[0_0_15px_rgba(255,85,0,0.25)] flex items-center justify-center shrink-0">
               <Image
                 src="/updated-logo-transparent.png"
                 alt="CESF Fabrication Logo"
                 fill
-                className="object-contain"
+                className="object-contain p-0.5 filter drop-shadow-[0_0_8px_rgba(255,85,0,0.45)] brightness-125 contrast-110"
               />
             </div>
             <div className="flex flex-col">
@@ -34,11 +34,6 @@ export function SiteFooter() {
           </p>
 
           <div className="mt-4 flex flex-col gap-2">
-            <div className="inline-flex items-center gap-1.5 rounded bg-slate-900 border border-slate-800 px-2.5 py-1 text-[11px] font-semibold text-emerald-400 w-max">
-              <ShieldCheck className="size-3.5" />
-              <span>ISO 9001:2015 Certified Workshop</span>
-            </div>
-
             <div className="inline-flex items-center gap-1.5 rounded bg-amber-500/10 border border-amber-500/25 px-2.5 py-1 text-[11px] font-mono font-bold text-amber-300 w-max">
               <Award className="size-3.5 text-brand-orange" />
               <span>GSTIN: {COMPANY.gstNumber}</span>
@@ -137,8 +132,19 @@ export function SiteFooter() {
           <p>
             &copy; {new Date().getFullYear()} {COMPANY.fullName} (CESF). All rights reserved. | GST: {COMPANY.gstNumber}
           </p>
-          <div className="flex items-center gap-4">
-            <span>Ghaziabad (U.P), India</span>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <span>
+              Design by{' '}
+              <a
+                href="https://www.devfordevs.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-brand-orange hover:text-amber-400 underline underline-offset-4 transition-colors"
+              >
+                DevforDevs
+              </a>
+            </span>
+            <span className="hidden sm:inline text-slate-700">•</span>
             <Link
               href="/#home"
               className="inline-flex items-center gap-1 text-slate-400 hover:text-brand-orange transition-colors"

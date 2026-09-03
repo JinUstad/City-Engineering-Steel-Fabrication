@@ -44,7 +44,7 @@ export const BANNERS: Banner[] = [
     title: 'Engineered for Maximum Strength & Durability',
     description:
       'Certified MIG/TIG welding, structural I-beams, heavy columns, and industrial assemblies precision-fabricated in Ghaziabad (U.P).',
-    tag: 'Certified ISO 9001:2015',
+    tag: 'Structural Steel Specialists',
   },
   {
     image: '/banner-shed.webp',
@@ -218,10 +218,10 @@ export const PRODUCTS: Product[] = [
     name: 'Architectural Staircases & Railings',
     category: 'Architectural',
     folderName: 'Architectural',
-    image: '/Architectural/1.jpg',
+    image: '/Architectural/staircase-1.png',
     images: [
-      '/Architectural/1.jpg',
-      '/Architectural/2.jpg',
+      '/Architectural/staircase-1.png',
+      '/Architectural/staircase-2.png',
       '/Architectural/3.jpg',
       '/Architectural/4.jpg',
     ],
@@ -319,8 +319,8 @@ export const ARCHITECTURAL_FABRICATION: Product[] = [
     name: 'Column Box',
     category: 'Construction Formwork',
     folderName: 'Column Box',
-    image: '/product-column-box.webp',
-    images: ['/product-column-box.webp', '/Structural Steel/1.jpg', '/Structural Steel/2.jpg', '/Structural Steel/3.jpg'],
+    image: '/product-column-box-new.png',
+    images: ['/product-column-box-new.png', '/Structural Steel/1.jpg', '/Structural Steel/2.jpg', '/Structural Steel/3.jpg'],
     description: 'Heavy MS steel column box shuttering plates, concrete formwork panels, adjustable corner angles, and high-strength casting molds.',
     features: [
       'Heavy MS Sheet with Structural Angle Framing',
@@ -335,8 +335,8 @@ export const ARCHITECTURAL_FABRICATION: Product[] = [
     name: 'M.S Grating Fabrication',
     category: 'Industrial Flooring',
     folderName: 'MS Grating',
-    image: '/product-ms-grating.webp',
-    images: ['/product-ms-grating.webp', '/gallery-mezzanine-floor.webp', '/product-structural-steel.webp'],
+    image: '/product-ms-grating-new.png',
+    images: ['/product-ms-grating-new.png', '/gallery-mezzanine-floor.webp', '/product-structural-steel.webp'],
     description: 'Heavy-duty welded mild steel floor gratings, drain trench covers, catwalk platforms, staircase treads, and hot-dip galvanized panels.',
     features: [
       'High Load Bearing Serrated / Plain Bearing Bars',
@@ -362,8 +362,8 @@ export type GalleryItem = {
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   // Architectural (4)
-  { id: 1, title: 'Architectural Project 01', category: 'Architectural', image: '/Architectural/1.jpg', description: 'Architectural metal fabrication' },
-  { id: 2, title: 'Architectural Project 02', category: 'Architectural', image: '/Architectural/2.jpg', description: 'Architectural steel staircase' },
+  { id: 1, title: 'Architectural Staircase 01', category: 'Architectural', image: '/Architectural/staircase-1.png', description: 'Luxury architectural steel staircase' },
+  { id: 2, title: 'Architectural Staircase 02', category: 'Architectural', image: '/Architectural/staircase-2.png', description: 'Modern floating steel staircase' },
   { id: 3, title: 'Architectural Project 03', category: 'Architectural', image: '/Architectural/3.jpg', description: 'Modern steel railing work' },
   { id: 4, title: 'Architectural Project 04', category: 'Architectural', image: '/Architectural/4.jpg', description: 'Facade metal framing' },
 

@@ -11,63 +11,16 @@ export function SiteHeader() {
 
   return (
     <header id="home" className="sticky top-0 z-40 bg-[#090d16]/95 backdrop-blur-md border-b border-border/80 transition-all">
-      {/* Top Utility Bar with Address & GST */}
-      <div className="bg-[#05080e] border-b border-white/5 text-xs text-slate-300">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-slate-300">
-            {/* Address */}
-            <div className="flex items-center gap-1.5 text-[11px] sm:text-xs">
-              <MapPin className="size-3.5 text-brand-orange shrink-0" aria-hidden="true" />
-              <span className="text-slate-300 font-medium">
-                {COMPANY.address}
-              </span>
-            </div>
-
-            {/* GST Number Badge */}
-            <div className="inline-flex items-center gap-1 rounded bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-[10px] sm:text-[11px] font-mono font-bold text-amber-300">
-              <Award className="size-3 text-brand-orange" />
-              <span>GSTIN: {COMPANY.gstNumber}</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-1">
-            <div className="flex items-center gap-2 text-slate-300">
-              <Phone className="size-3.5 text-brand-orange" aria-hidden="true" />
-              <a
-                href={`tel:${COMPANY.phoneClean}`}
-                className="font-semibold text-slate-200 hover:text-brand-orange transition-colors"
-              >
-                {COMPANY.phone}
-              </a>
-              <span className="text-slate-600">/</span>
-              <a
-                href={`tel:${COMPANY.phone2Clean}`}
-                className="font-semibold text-slate-200 hover:text-brand-orange transition-colors"
-              >
-                {COMPANY.phone2}
-              </a>
-            </div>
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-brand-orange transition-colors"
-            >
-              <Mail className="size-3.5 text-brand-orange" aria-hidden="true" />
-              <span>{COMPANY.email}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Nav */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:py-3">
-        {/* Brand with Transparent Logo */}
+        {/* Brand with Visible Enhanced Logo */}
         <Link href="/" className="group flex items-center gap-3">
-          <div className="relative size-12 sm:size-14 overflow-hidden transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+          <div className="relative size-12 sm:size-14 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900/90 p-1 border border-slate-700 shadow-[0_0_15px_rgba(255,85,0,0.3)] transition-transform duration-300 group-hover:scale-105 flex items-center justify-center shrink-0">
             <Image
               src="/updated-logo-transparent.png"
               alt="CESF FABRICATION Logo"
               fill
-              className="object-contain"
+              className="object-contain p-0.5 filter drop-shadow-[0_0_8px_rgba(255,85,0,0.45)] brightness-125 contrast-110"
               priority
             />
           </div>

@@ -69,24 +69,6 @@ export function BannerSlider() {
                     <span>Turnkey Erection & Fitting</span>
                   </div>
                 </div>
-
-                {/* CTAs */}
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-brand-orange to-amber-500 px-6 py-3.5 text-sm font-bold text-white shadow-[0_0_25px_rgba(255,85,0,0.5)] transition-all hover:shadow-[0_0_35px_rgba(255,85,0,0.8)] hover:scale-105 active:scale-95"
-                  >
-                    <span>Request Engineering RFQ</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                  <a
-                    href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
-                    className="inline-flex items-center gap-2 rounded-md border border-slate-600 bg-slate-900/90 px-5 py-3.5 text-sm font-semibold text-slate-200 backdrop-blur-md transition-colors hover:border-brand-orange hover:text-white"
-                  >
-                    <Phone className="size-4 text-brand-orange" />
-                    <span>Call Fabricator</span>
-                  </a>
-                </div>
               </div>
             </div>
           </div>

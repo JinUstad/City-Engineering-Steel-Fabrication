@@ -98,8 +98,8 @@ export default function AboutPage() {
                     <Award className="size-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">Quality Management Certified</h3>
-                    <p className="text-xs text-amber-300">ISO 9001:2015 Registered Fabricator</p>
+                    <h3 className="text-lg font-bold text-white">Quality Assurance Protocols</h3>
+                    <p className="text-xs text-amber-300">Certified Welding & NDT Inspection</p>
                   </div>
                 </div>
 
