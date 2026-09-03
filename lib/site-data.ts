@@ -143,9 +143,9 @@ export const SERVICES: Product[] = [
     name: 'Bed Room Furniture',
     category: 'Bedroom Luxury',
     folderName: 'Bed Room Furniture',
-    image: '/product-wardrobe.webp',
+    image: '/product-wardrobe-new.png',
     images: [
-      '/product-wardrobe.webp',
+      '/product-wardrobe-new.png',
       '/product-sofa.webp',
       '/banner-sofa.webp',
       '/product-crockery-unit.webp',
