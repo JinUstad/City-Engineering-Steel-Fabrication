@@ -143,12 +143,12 @@ export const SERVICES: Product[] = [
     name: 'Civil Construction Work',
     category: 'Civil Works',
     folderName: 'Civil Construction',
-    image: '/about-factory.webp',
+    image: '/Civil Construction/1.jpg',
     images: [
-      '/about-factory.webp',
-      '/gallery-mezzanine-floor.webp',
-      '/gallery-bridge-girder.webp',
-      '/about-workshop.webp',
+      '/Civil Construction/1.jpg',
+      '/Civil Construction/2.jpg',
+      '/Civil Construction/3.jpg',
+      '/Civil Construction/4.jpg',
     ],
     description: 'End-to-end civil construction services including RCC structures, industrial flooring, site erection, and turnkey project execution.',
     features: [
