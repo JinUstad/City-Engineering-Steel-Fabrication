@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Menu, X, Flame, Award } from 'lucide-react'
+import { Phone, MapPin, Menu, X, Flame, Award } from 'lucide-react'
 import { COMPANY, NAV_LINKS } from '@/lib/site-data'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -54,14 +54,6 @@ export function SiteHeader() {
         {/* Desktop CTA + Theme Toggle */}
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-brand-orange to-amber-500 px-5 py-2.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(255,85,0,0.4)] transition-all hover:shadow-[0_0_25px_rgba(255,85,0,0.7)] hover:brightness-110 active:scale-95"
-          >
-            <Mail className="size-4" aria-hidden="true" />
-            Get Instant Quote
-          </Link>
         </div>
 
         {/* Mobile controls */}
@@ -117,14 +109,7 @@ export function SiteHeader() {
                 <Phone className="size-4 text-brand-orange" />
                 Call {COMPANY.phone}
               </a>
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-brand-orange to-amber-500 px-5 py-3 text-sm font-bold text-white shadow-lg"
-              >
-                <Mail className="size-4" aria-hidden="true" />
-                Get Instant Quote
-              </Link>
+
             </div>
           </div>
         </nav>
