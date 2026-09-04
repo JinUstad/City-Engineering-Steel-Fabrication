@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, MapPin, Phone, ShieldCheck, Flame, ArrowUp, Award } from 'lucide-react'
+import { Mail, MapPin, Phone, ArrowUp, Award } from 'lucide-react'
 import { COMPANY, NAV_LINKS, PRODUCTS } from '@/lib/site-data'
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#05080e] border-t border-slate-800 text-slate-300">
+    <footer className="bg-slate-900 dark:bg-[#05080e] border-t border-slate-800 text-slate-300">
       {/* Main Footer Links */}
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4 sm:px-6">
         {/* Brand info */}
@@ -65,7 +65,7 @@ export function SiteFooter() {
             {PRODUCTS.map((product) => (
               <li key={product.name}>
                 <Link
-                  href="/#products"
+                  href="/products"
                   className="text-slate-400 transition-colors hover:text-brand-orange"
                 >
                   {product.name}
@@ -127,7 +127,7 @@ export function SiteFooter() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-900 bg-[#030509] py-5">
+      <div className="border-t border-slate-800/80 bg-slate-950 dark:bg-[#030509] py-5">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 text-xs text-slate-400 sm:flex-row sm:px-6">
           <p>
             &copy; {new Date().getFullYear()} {COMPANY.fullName} (CESF). All rights reserved. | GST: {COMPANY.gstNumber}

@@ -12,7 +12,7 @@ import Link from 'next/link'
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#090d16] text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <SiteHeader />
       
       <main className="flex-1">
@@ -22,10 +22,10 @@ export default function Page() {
         {/* 6 Heavy Structural Steel & Metal Fabrication Capabilities */}
         <section className="relative">
           <ProductsGrid />
-          <div className="bg-[#0b101c] pb-12 text-center">
+          <div className="bg-muted/40 dark:bg-[#0b101c] pb-12 text-center border-b border-border/60">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900/90 px-6 py-3 text-xs sm:text-sm font-bold text-amber-400 hover:border-brand-orange hover:text-white transition-all shadow-md"
+              className="inline-flex items-center gap-2 rounded-md border border-border dark:border-slate-700 bg-card dark:bg-slate-900/90 px-6 py-3 text-xs sm:text-sm font-bold text-amber-600 dark:text-amber-400 hover:border-brand-orange hover:text-brand-orange dark:hover:text-white transition-all shadow-md"
             >
               <span>View Full Services & Specifications</span>
               <ArrowRight className="size-4" />
@@ -36,10 +36,10 @@ export default function Page() {
         {/* About Workshop & Quality Standards with Link to /about */}
         <section className="relative">
           <AboutSection />
-          <div className="bg-[#0b101c] pb-12 text-center">
+          <div className="bg-muted/40 dark:bg-[#0b101c] pb-12 text-center border-b border-border/60">
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900/90 px-6 py-3 text-xs sm:text-sm font-bold text-slate-300 hover:border-brand-orange hover:text-white transition-all shadow-md"
+              className="inline-flex items-center gap-2 rounded-md border border-border dark:border-slate-700 bg-card dark:bg-slate-900/90 px-6 py-3 text-xs sm:text-sm font-bold text-foreground/80 hover:border-brand-orange hover:text-brand-orange dark:hover:text-white transition-all shadow-md"
             >
               <span>Read Full Company Story & Machinery Specs</span>
               <ArrowRight className="size-4" />
@@ -54,19 +54,19 @@ export default function Page() {
         <ArchitecturalFabricationSection />
 
         {/* Quick CTA to Dedicated Contact Page */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-[#0d1524] via-[#101b2e] to-[#0d1524] py-16 border-t border-slate-800">
+        <section className="relative overflow-hidden bg-gradient-to-r from-slate-100 via-slate-50 to-slate-100 dark:from-[#0d1524] dark:via-[#101b2e] dark:to-[#0d1524] py-16 border-t border-border">
           <div className="absolute -top-24 -left-24 size-72 rounded-full bg-brand-orange/10 blur-3xl pointer-events-none" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-400 mb-3">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-3">
               <Flame className="size-3.5 text-brand-orange" />
               <span>Direct Estimation Desk</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-foreground tracking-tight">
               Submit Your Drawing or BOQ For Fast RFQ
             </h2>
 
-            <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-slate-300">
+            <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-muted-foreground">
               Visit our dedicated Contact page to submit project specifications, steel tonnage, or speak with our Chief Engineer.
             </p>
 
@@ -82,7 +82,7 @@ export default function Page() {
 
               <a
                 href={`tel:${COMPANY.phoneClean}`}
-                className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-900/90 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:border-brand-orange hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 rounded-md border border-border dark:border-slate-700 bg-card dark:bg-slate-900/90 px-6 py-3.5 text-sm font-semibold text-foreground hover:border-brand-orange hover:text-brand-orange dark:hover:text-white transition-colors"
               >
                 <Phone className="size-4 text-brand-orange" />
                 <span>Call {COMPANY.phone}</span>

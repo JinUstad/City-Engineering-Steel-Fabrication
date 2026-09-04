@@ -26,10 +26,10 @@ export function ContactSection() {
   }
 
   const inputClasses =
-    'w-full rounded-md border border-slate-700 bg-slate-900/90 px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-slate-500 focus:border-brand-orange focus:ring-1 focus:ring-brand-orange'
+    'w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-brand-orange focus:ring-1 focus:ring-brand-orange'
 
   return (
-    <section id="contact-form" className="scroll-mt-24 bg-[#090d16] py-12 sm:py-16">
+    <section id="contact-form" className="scroll-mt-24 bg-background py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Direct RFQ & Quotation"
@@ -39,26 +39,26 @@ export function ContactSection() {
 
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
           {/* Contact Details Column */}
-          <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-slate-800 bg-[#101726] p-6 sm:p-8 shadow-xl">
+          <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xl">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-md bg-brand-orange/20 border border-brand-orange/40 px-3 py-1 text-xs font-bold text-amber-400">
+              <div className="inline-flex items-center gap-2 rounded-md bg-brand-orange/20 border border-brand-orange/40 px-3 py-1 text-xs font-bold text-amber-600 dark:text-amber-400">
                 <ShieldCheck className="size-3.5" />
                 <span>Direct Chief Engineer Desk</span>
               </div>
               
-              <h3 className="mt-4 text-2xl font-bold text-white">Works & Office Location</h3>
-              <p className="mt-2 text-sm text-slate-300">
+              <h3 className="mt-4 text-2xl font-bold text-foreground">Works & Office Location</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
                 Visit our Ghaziabad (U.P) heavy steel fabrication workshop or speak directly with our engineering estimation team:
               </p>
 
               <ul className="mt-8 space-y-6 text-sm">
                 <li className="flex items-start gap-4">
-                  <div className="size-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-orange shrink-0">
+                  <div className="size-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-brand-orange shrink-0">
                     <MapPin className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Fabrication Workshop</p>
-                    <address className="mt-1 not-italic text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    <p className="font-bold text-foreground">Fabrication Workshop</p>
+                    <address className="mt-1 not-italic text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       {COMPANY.addressLines.map((line) => (
                         <span key={line} className="block">
                           {line}
@@ -69,34 +69,34 @@ export function ContactSection() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <div className="size-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-orange shrink-0">
+                  <div className="size-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-brand-orange shrink-0">
                     <ShieldCheck className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">GST Registration</p>
-                    <p className="mt-1 font-mono text-sm font-bold text-amber-400">
+                    <p className="font-bold text-foreground">GST Registration</p>
+                    <p className="mt-1 font-mono text-sm font-bold text-amber-600 dark:text-amber-400">
                       GSTIN: {COMPANY.gstNumber}
                     </p>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <div className="size-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-orange shrink-0">
+                  <div className="size-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-brand-orange shrink-0">
                     <Phone className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Direct Phone Lines</p>
+                    <p className="font-bold text-foreground">Direct Phone Lines</p>
                     <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
                       <a
                         href={`tel:${COMPANY.phoneClean}`}
-                        className="font-mono text-sm sm:text-base font-bold text-amber-400 hover:underline"
+                        className="font-mono text-sm sm:text-base font-bold text-amber-600 dark:text-amber-400 hover:underline"
                       >
                         {COMPANY.phone}
                       </a>
-                      <span className="text-slate-600">|</span>
+                      <span className="text-muted-foreground">|</span>
                       <a
                         href={`tel:${COMPANY.phone2Clean}`}
-                        className="font-mono text-sm sm:text-base font-bold text-amber-400 hover:underline"
+                        className="font-mono text-sm sm:text-base font-bold text-amber-600 dark:text-amber-400 hover:underline"
                       >
                         {COMPANY.phone2}
                       </a>
@@ -105,14 +105,14 @@ export function ContactSection() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <div className="size-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-orange shrink-0">
+                  <div className="size-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-brand-orange shrink-0">
                     <Mail className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Official Email Address</p>
+                    <p className="font-bold text-foreground">Official Email Address</p>
                     <a
                       href={`mailto:${COMPANY.email}`}
-                      className="mt-1 block text-sm font-semibold text-amber-400 hover:underline"
+                      className="mt-1 block text-sm font-semibold text-amber-600 dark:text-amber-400 hover:underline"
                     >
                       {COMPANY.email}
                     </a>
@@ -120,31 +120,31 @@ export function ContactSection() {
                 </li>
 
                 <li className="flex items-start gap-4">
-                  <div className="size-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-orange shrink-0">
+                  <div className="size-10 rounded-lg bg-secondary border border-border flex items-center justify-center text-brand-orange shrink-0">
                     <Clock className="size-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-white">Working Hours</p>
-                    <p className="mt-0.5 text-xs text-slate-300">Monday - Saturday: 8:30 AM - 7:30 PM</p>
+                    <p className="font-bold text-foreground">Working Hours</p>
+                    <p className="mt-0.5 text-xs text-muted-foreground">Monday - Saturday: 8:30 AM - 7:30 PM</p>
                   </div>
                 </li>
               </ul>
             </div>
 
             {/* Quick Action Button */}
-            <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap gap-3">
+            <div className="mt-8 pt-6 border-t border-border flex flex-wrap gap-3">
               <a
                 href={`tel:${COMPANY.phoneClean}`}
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-slate-800 border border-slate-700 py-3 text-xs sm:text-sm font-bold text-white hover:bg-slate-700 transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-secondary border border-border py-3 text-xs sm:text-sm font-bold text-foreground hover:bg-accent transition-colors"
               >
                 <Phone className="size-4 text-brand-orange" />
                 <span>Call {COMPANY.phone}</span>
               </a>
               <a
                 href={`tel:${COMPANY.phone2Clean}`}
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-slate-800 border border-slate-700 py-3 text-xs sm:text-sm font-bold text-white hover:bg-slate-700 transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-secondary border border-border py-3 text-xs sm:text-sm font-bold text-foreground hover:bg-accent transition-colors"
               >
-                <Phone className="size-4 text-amber-400" />
+                <Phone className="size-4 text-amber-500" />
                 <span>Call {COMPANY.phone2}</span>
               </a>
               <a
@@ -160,15 +160,15 @@ export function ContactSection() {
           </div>
 
           {/* Form Column */}
-          <div className="lg:col-span-7 rounded-2xl border border-slate-800 bg-[#101726] p-6 sm:p-8 shadow-xl">
-            <h3 className="text-xl font-bold text-white">Request for Quotation (RFQ) Form</h3>
-            <p className="mt-1.5 text-xs sm:text-sm text-slate-400">
+          <div className="lg:col-span-7 rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-xl">
+            <h3 className="text-xl font-bold text-foreground">Request for Quotation (RFQ) Form</h3>
+            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground">
               Provide project scope, required delivery timeline, or request a call from our structural design team.
             </p>
 
             {submitted && (
-              <div className="mt-4 rounded-md bg-emerald-950/80 border border-emerald-600 p-4 text-emerald-200 text-sm flex items-center gap-3">
-                <CheckCircle2 className="size-5 text-emerald-400 shrink-0" />
+              <div className="mt-4 rounded-md bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-500 p-4 text-emerald-800 dark:text-emerald-200 text-sm flex items-center gap-3">
+                <CheckCircle2 className="size-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>Thank you! Your inquiry is being sent to our engineering team at {COMPANY.email}.</span>
               </div>
             )}
@@ -176,7 +176,7 @@ export function ContactSection() {
             <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="mb-1.5 block text-xs font-semibold text-slate-300">
+                  <label htmlFor="name" className="mb-1.5 block text-xs font-semibold text-foreground">
                     Contact Person / Company Name *
                   </label>
                   <input
@@ -191,7 +191,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="mb-1.5 block text-xs font-semibold text-slate-300">
+                  <label htmlFor="phone" className="mb-1.5 block text-xs font-semibold text-foreground">
                     Mobile / WhatsApp Number *
                   </label>
                   <input
@@ -208,7 +208,7 @@ export function ContactSection() {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="email" className="mb-1.5 block text-xs font-semibold text-slate-300">
+                  <label htmlFor="email" className="mb-1.5 block text-xs font-semibold text-foreground">
                     Email Address *
                   </label>
                   <input
@@ -223,14 +223,14 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="category" className="mb-1.5 block text-xs font-semibold text-slate-300">
+                  <label htmlFor="category" className="mb-1.5 block text-xs font-semibold text-foreground">
                     Product / Service Category
                   </label>
                   <select
                     id="category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className={`${inputClasses} bg-[#101726] text-slate-200 cursor-pointer`}
+                    className={`${inputClasses} cursor-pointer`}
                   >
                     {PRODUCTS.map((p) => (
                       <option key={p.name} value={p.name}>
@@ -245,7 +245,7 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="tonnage" className="mb-1.5 block text-xs font-semibold text-slate-300">
+                <label htmlFor="tonnage" className="mb-1.5 block text-xs font-semibold text-foreground">
                   Approx. Steel Tonnage / Area / Quantity (Optional)
                 </label>
                 <input
@@ -259,7 +259,7 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-slate-300">
+                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-foreground">
                   Project Specifications & Drawing Notes *
                 </label>
                 <textarea

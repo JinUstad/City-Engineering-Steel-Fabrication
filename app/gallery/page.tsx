@@ -14,24 +14,24 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#090d16] text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <SiteHeader />
 
       <main className="flex-1">
         {/* Header Hero Banner */}
-        <section className="relative overflow-hidden bg-[#070b13] py-14 sm:py-20 border-b border-slate-800">
+        <section className="relative overflow-hidden bg-muted/40 py-14 sm:py-20 border-b border-border">
           <div className="absolute inset-0 bg-gradient-to-r from-brand-orange/10 via-transparent to-amber-500/10" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-4">
               <Flame className="size-3.5 text-brand-orange" />
               <span>Project Execution Portfolio</span>
             </div>
 
-            <h1 className="text-3xl font-black tracking-tight text-white sm:text-5xl">
+            <h1 className="text-3xl font-black tracking-tight text-foreground sm:text-5xl">
               Our Work Gallery
             </h1>
 
-            <p className="mx-auto mt-3.5 max-w-2xl text-sm sm:text-base text-slate-300">
+            <p className="mx-auto mt-3.5 max-w-2xl text-sm sm:text-base text-muted-foreground">
               Photographs from our fabrication yard, certified welding stations, laser cutting division, and on-site structural installations. Click any image to view in interactive modal.
             </p>
           </div>
@@ -41,12 +41,12 @@ export default function GalleryPage() {
         <WorkGallery />
 
         {/* Bottom Contact Prompt */}
-        <section className="bg-[#05080e] py-14 border-t border-slate-800 text-center">
+        <section className="bg-secondary/40 py-14 border-t border-border text-center">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">
               Want us to fabricate something similar for your site?
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-slate-400">
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
               Get direct technical estimation and delivery schedules from our New Delhi engineering team.
             </p>
             <div className="mt-6">

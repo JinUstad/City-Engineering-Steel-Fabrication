@@ -4,14 +4,11 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  ArrowRight,
   CheckCircle2,
-  PhoneCall,
-  Layers,
   Images,
   Sparkles,
 } from 'lucide-react'
-import { SERVICES, COMPANY, type Product } from '@/lib/site-data'
+import { SERVICES, type Product } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
 import { ImageCarouselModal } from '@/components/image-carousel-modal'
 
@@ -25,7 +22,7 @@ export function ServicesSection() {
   }
 
   return (
-    <section id="services" className="scroll-mt-24 bg-[#090d16] py-16 sm:py-24 border-b border-border/60">
+    <section id="services" className="scroll-mt-24 bg-card/40 py-16 sm:py-24 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Section Header */}
         <div>
@@ -44,12 +41,12 @@ export function ServicesSection() {
             return (
               <article
                 key={service.id}
-                className="group relative flex flex-col rounded-2xl overflow-hidden border border-slate-800 bg-[#101726] shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-orange/70 hover:shadow-[0_15px_35px_-5px_rgba(255,85,0,0.3)]"
+                className="group relative flex flex-col rounded-2xl overflow-hidden border border-border bg-card shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-orange/70 hover:shadow-[0_15px_35px_-5px_rgba(255,85,0,0.25)]"
               >
                 {/* Single Image Container with Click-to-Open Action */}
                 <div
                   onClick={() => handleOpenGallery(service)}
-                  className="relative aspect-[4/3] overflow-hidden bg-slate-900 cursor-pointer"
+                  className="relative aspect-[4/3] overflow-hidden bg-muted cursor-pointer"
                   title="Click to view full photo gallery"
                 >
                   <Image
@@ -59,7 +56,7 @@ export function ServicesSection() {
                     sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#101726] via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-[#101726] dark:via-black/20 dark:to-transparent" />
                   
                   {/* Category Tag */}
                   <span className="absolute top-3 left-3 rounded bg-brand-orange/95 px-2.5 py-1 text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-white shadow-md backdrop-blur-sm">
@@ -85,18 +82,18 @@ export function ServicesSection() {
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <h3
                     onClick={() => handleOpenGallery(service)}
-                    className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors cursor-pointer leading-snug"
+                    className="text-lg font-bold text-foreground group-hover:text-brand-orange dark:group-hover:text-amber-400 transition-colors cursor-pointer leading-snug"
                   >
                     {service.name}
                   </h3>
                   
-                  <p className="mt-2 flex-1 text-xs sm:text-sm leading-relaxed text-slate-300 line-clamp-3">
+                  <p className="mt-2 flex-1 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3">
                     {service.description}
                   </p>
 
                   {/* Features List */}
                   {service.features && service.features.length > 0 && (
-                    <ul className="mt-4 space-y-1.5 border-t border-slate-800/80 pt-3 text-xs text-slate-300">
+                    <ul className="mt-4 space-y-1.5 border-t border-border pt-3 text-xs text-foreground/80">
                       {service.features.slice(0, 3).map((feat) => (
                         <li key={feat} className="flex items-start gap-1.5 text-[11px] sm:text-xs">
                           <CheckCircle2 className="size-3.5 mt-0.5 text-brand-orange shrink-0" />

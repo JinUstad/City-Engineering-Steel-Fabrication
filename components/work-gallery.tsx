@@ -8,10 +8,8 @@ import {
   X,
   Maximize2,
   Folder,
-  Layers,
-  Sparkles,
 } from 'lucide-react'
-import { GALLERY_ITEMS, GalleryItem } from '@/lib/site-data'
+import { GALLERY_ITEMS } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
 
 export function WorkGallery() {
@@ -84,11 +82,12 @@ export function WorkGallery() {
   const currentItem = activeItemIndex !== null ? filteredItems[activeItemIndex] : null
 
   return (
-    <section id="gallery" className="scroll-mt-20 bg-[#070b13] py-14 sm:py-20 border-b border-border/60">
+    <section id="gallery" className="scroll-mt-20 bg-background py-14 sm:py-20 border-b border-border/60">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
           <SectionHeading
+            align="center"
             eyebrow="Folder Photo Gallery"
             title="Executed Fabrication & Plant Projects"
             description="Explore our high-resolution photos from plant workshops, CNC cutting bays, PEB sheds, and heavy structural installations across India."
@@ -111,7 +110,7 @@ export function WorkGallery() {
                 className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-gradient-to-r from-brand-orange to-amber-500 text-white shadow-lg shadow-brand-orange/30 scale-105'
-                    : 'bg-slate-900/90 border border-slate-800 text-slate-300 hover:border-brand-orange hover:text-white'
+                    : 'bg-card border border-border text-foreground/80 hover:border-brand-orange hover:text-brand-orange'
                 }`}
               >
                 <Folder className="size-3.5" />
@@ -120,7 +119,7 @@ export function WorkGallery() {
                   className={`rounded-full px-1.5 py-0.2 text-[10px] ${
                     selectedCategory === cat
                       ? 'bg-white/20 text-white'
-                      : 'bg-slate-800 text-slate-400'
+                      : 'bg-secondary text-muted-foreground'
                   }`}
                 >
                   {count}
@@ -130,13 +129,13 @@ export function WorkGallery() {
           })}
         </div>
 
-        {/* 5 Images in 1 Row Grid (No Text on Cards) */}
+        {/* 5 Images in 1 Row Grid */}
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4">
           {filteredItems.map((item, idx) => (
             <div
               key={item.id}
               onClick={() => openModal(idx)}
-              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-[#101726] border border-slate-800 cursor-pointer shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-orange hover:shadow-[0_10px_25px_-5px_rgba(255,85,0,0.35)]"
+              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border cursor-pointer shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-orange hover:shadow-[0_10px_25px_-5px_rgba(255,85,0,0.3)]"
               title="Click to expand photo"
             >
               <Image

@@ -7,15 +7,12 @@ import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { FloatingContact } from '@/components/floating-contact'
 import { ImageCarouselModal } from '@/components/image-carousel-modal'
-import { SERVICES, PRODUCTS, ARCHITECTURAL_FABRICATION, COMPANY, type Product } from '@/lib/site-data'
+import { SERVICES, PRODUCTS, ARCHITECTURAL_FABRICATION, type Product } from '@/lib/site-data'
 import {
   ArrowRight,
   CheckCircle2,
   Flame,
-  PhoneCall,
   Images,
-  Sparkles,
-  Layers,
 } from 'lucide-react'
 
 export default function ProductsPage() {
@@ -27,41 +24,39 @@ export default function ProductsPage() {
     setIsModalOpen(true)
   }
 
-  const allItems = [...SERVICES, ...PRODUCTS]
-
   return (
-    <div className="flex min-h-screen flex-col bg-[#090d16] text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <SiteHeader />
 
       <main className="flex-1">
         {/* Hero Header */}
-        <section className="relative overflow-hidden bg-[#070b13] py-14 sm:py-20 border-b border-slate-800">
+        <section className="relative overflow-hidden bg-muted/40 py-14 sm:py-20 border-b border-border">
           <div className="absolute inset-0 bg-gradient-to-r from-brand-orange/10 via-transparent to-amber-500/10" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-brand-orange/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-4">
               <Flame className="size-3.5 text-brand-orange" />
               <span>Full Portfolio & Capabilities</span>
             </div>
 
-            <h1 className="text-3xl font-black tracking-tight text-white sm:text-5xl">
+            <h1 className="text-3xl font-black tracking-tight text-foreground sm:text-5xl">
               Services & Fabrication Solutions
             </h1>
 
-            <p className="mx-auto mt-3.5 max-w-2xl text-sm sm:text-base text-slate-300">
+            <p className="mx-auto mt-3.5 max-w-2xl text-sm sm:text-base text-muted-foreground">
               Explore our complete range of bespoke interior design, luxury modular kitchens, commercial office furniture, and heavy structural steel fabrication. Click any card to open the interactive photo gallery.
             </p>
           </div>
         </section>
 
         {/* Section 1: Interior & Furniture Services (4 Cards) */}
-        <section className="py-16 sm:py-20 bg-[#090d16] border-b border-slate-800">
+        <section className="py-16 sm:py-20 bg-background border-b border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mb-10 text-center sm:text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-amber-400">Section 01</span>
-              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-white">
+              <span className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">Section 01</span>
+              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-foreground">
                 Interior Design & Custom Furniture
               </h2>
-              <p className="mt-2 text-sm text-slate-400 max-w-2xl">
+              <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
                 Bespoke residential & commercial interior architecture, modular kitchen setups, workstations, and luxury bedroom aesthetics.
               </p>
             </div>
@@ -73,11 +68,11 @@ export default function ProductsPage() {
                 return (
                   <div
                     key={service.id}
-                    className="group flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-[#101726] shadow-xl transition-all duration-300 hover:border-brand-orange/60 hover:shadow-[0_10px_35px_-5px_rgba(255,85,0,0.25)]"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 hover:border-brand-orange/60 hover:shadow-[0_10px_35px_-5px_rgba(255,85,0,0.2)]"
                   >
                     <div
                       onClick={() => handleOpenGallery(service)}
-                      className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900 cursor-pointer"
+                      className="relative aspect-[4/3] w-full overflow-hidden bg-muted cursor-pointer"
                       title="Click to view full photo slider"
                     >
                       <Image
@@ -87,7 +82,7 @@ export default function ProductsPage() {
                         sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#101726] via-transparent to-black/30" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 dark:from-[#101726] dark:via-transparent dark:to-black/30" />
                       <span className="absolute top-3 left-3 rounded bg-brand-orange px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-white shadow-lg">
                         {service.category}
                       </span>
@@ -100,15 +95,15 @@ export default function ProductsPage() {
                     <div className="flex flex-1 flex-col p-5 sm:p-6">
                       <h3
                         onClick={() => handleOpenGallery(service)}
-                        className="text-lg font-bold text-white group-hover:text-amber-400 transition-colors cursor-pointer"
+                        className="text-lg font-bold text-foreground group-hover:text-brand-orange dark:group-hover:text-amber-400 transition-colors cursor-pointer"
                       >
                         {service.name}
                       </h3>
-                      <p className="mt-2 text-xs leading-relaxed text-slate-300 line-clamp-2">
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">
                         {service.description}
                       </p>
 
-                      <ul className="mt-4 space-y-1.5 border-t border-slate-800/80 pt-3 text-xs text-slate-300">
+                      <ul className="mt-4 space-y-1.5 border-t border-border pt-3 text-xs text-foreground/80">
                         {service.features.slice(0, 3).map((f) => (
                           <li key={f} className="flex items-center gap-2 text-[11px]">
                             <CheckCircle2 className="size-3.5 text-brand-orange shrink-0" />
@@ -116,7 +111,6 @@ export default function ProductsPage() {
                           </li>
                         ))}
                       </ul>
-
                     </div>
                   </div>
                 )
@@ -126,14 +120,14 @@ export default function ProductsPage() {
         </section>
 
         {/* Section 2: Heavy Structural Steel & Metal Fabrication (6 Cards) */}
-        <section className="py-16 sm:py-20 bg-[#0b101c]">
+        <section className="py-16 sm:py-20 bg-muted/40 border-b border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mb-10 text-center sm:text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-amber-400">Section 02</span>
-              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-white">
+              <span className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">Section 02</span>
+              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-foreground">
                 Heavy Structural Steel & Industrial Fabrication
               </h2>
-              <p className="mt-2 text-sm text-slate-400 max-w-2xl">
+              <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
                 Certified heavy industrial steel fabrication, pre-engineered building (PEB) warehouse sheds, 6kW CNC fiber laser cutting, and architectural metalwork.
               </p>
             </div>
@@ -145,11 +139,11 @@ export default function ProductsPage() {
                 return (
                   <div
                     key={product.id}
-                    className="group flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-[#101726] shadow-xl transition-all duration-300 hover:border-brand-orange/60 hover:shadow-[0_10px_35px_-5px_rgba(255,85,0,0.25)]"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 hover:border-brand-orange/60 hover:shadow-[0_10px_35px_-5px_rgba(255,85,0,0.2)]"
                   >
                     <div
                       onClick={() => handleOpenGallery(product)}
-                      className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900 cursor-pointer"
+                      className="relative aspect-[16/9] w-full overflow-hidden bg-muted cursor-pointer"
                       title="Click to view full photo slider"
                     >
                       <Image
@@ -159,7 +153,7 @@ export default function ProductsPage() {
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#101726] via-transparent to-black/30" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 dark:from-[#101726] dark:via-transparent dark:to-black/30" />
                       <span className="absolute top-4 left-4 rounded bg-brand-orange px-3 py-1 text-xs font-black uppercase tracking-wider text-white shadow-lg">
                         {product.category}
                       </span>
@@ -172,15 +166,15 @@ export default function ProductsPage() {
                     <div className="flex flex-1 flex-col p-6 sm:p-7">
                       <h3
                         onClick={() => handleOpenGallery(product)}
-                        className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors cursor-pointer"
+                        className="text-xl font-bold text-foreground group-hover:text-brand-orange dark:group-hover:text-amber-400 transition-colors cursor-pointer"
                       >
                         {product.name}
                       </h3>
-                      <p className="mt-2.5 text-sm leading-relaxed text-slate-300">
+                      <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
                         {product.description}
                       </p>
 
-                      <ul className="mt-5 space-y-2 border-t border-slate-800/80 pt-4 text-xs text-slate-300">
+                      <ul className="mt-5 space-y-2 border-t border-border pt-4 text-xs text-foreground/80">
                         {product.features.map((f) => (
                           <li key={f} className="flex items-center gap-2.5">
                             <CheckCircle2 className="size-4 text-brand-orange shrink-0" />
@@ -190,18 +184,17 @@ export default function ProductsPage() {
                       </ul>
 
                       {product.specs && (
-                        <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-800/80 pt-3">
+                        <div className="mt-5 flex flex-wrap gap-2 border-t border-border pt-3">
                           {product.specs.map((spec) => (
                             <span
                               key={spec}
-                              className="rounded-md bg-slate-900 border border-slate-700/80 px-2 py-0.5 text-[11px] font-mono text-slate-300"
+                              className="rounded-md bg-secondary border border-border px-2 py-0.5 text-[11px] font-mono text-foreground/80"
                             >
                               {spec}
                             </span>
                           ))}
                         </div>
                       )}
-
                     </div>
                   </div>
                 )
@@ -211,14 +204,14 @@ export default function ProductsPage() {
         </section>
 
         {/* Section 3: Architectural & Specialized Fabrication Solutions (5 Cards) */}
-        <section className="py-16 sm:py-20 bg-[#070b13] border-t border-slate-800">
+        <section className="py-16 sm:py-20 bg-background border-t border-border">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
             <div className="mb-10 text-center sm:text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-amber-400">Section 03</span>
-              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-white">
+              <span className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">Section 03</span>
+              <h2 className="mt-1 text-2xl sm:text-3xl font-black text-foreground">
                 Architectural & Specialized Fabrication Solutions
               </h2>
-              <p className="mt-2 text-sm text-slate-400 max-w-2xl">
+              <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
                 UPVC & aluminium windows, gypsum false ceiling systems, motorized MS rolling shutters, column box shuttering plates, and heavy MS industrial gratings.
               </p>
             </div>
@@ -228,9 +221,9 @@ export default function ProductsPage() {
                 return (
                   <div
                     key={item.id}
-                    className="group flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-[#101726] shadow-xl transition-all duration-300 hover:border-brand-orange/60 hover:shadow-[0_10px_35px_-5px_rgba(255,85,0,0.25)]"
+                    className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all duration-300 hover:border-brand-orange/60 hover:shadow-[0_10px_35px_-5px_rgba(255,85,0,0.2)]"
                   >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -238,21 +231,21 @@ export default function ProductsPage() {
                         sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#101726] via-transparent to-black/30" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 dark:from-[#101726] dark:via-transparent dark:to-black/30" />
                       <span className="absolute top-2.5 left-2.5 rounded bg-brand-orange px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-white shadow-lg">
                         {item.category}
                       </span>
                     </div>
 
                     <div className="flex flex-1 flex-col p-4 sm:p-5">
-                      <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors leading-snug">
+                      <h3 className="text-base font-bold text-foreground group-hover:text-brand-orange dark:group-hover:text-amber-400 transition-colors leading-snug">
                         {item.name}
                       </h3>
-                      <p className="mt-2 text-xs leading-relaxed text-slate-300 line-clamp-3">
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-3">
                         {item.description}
                       </p>
 
-                      <ul className="mt-3.5 space-y-1.5 border-t border-slate-800/80 pt-3 text-[11px] text-slate-300">
+                      <ul className="mt-3.5 space-y-1.5 border-t border-border pt-3 text-[11px] text-foreground/80">
                         {item.features.slice(0, 2).map((f) => (
                           <li key={f} className="flex items-center gap-1.5">
                             <CheckCircle2 className="size-3 text-brand-orange shrink-0" />
@@ -260,7 +253,6 @@ export default function ProductsPage() {
                           </li>
                         ))}
                       </ul>
-
                     </div>
                   </div>
                 )
@@ -270,12 +262,12 @@ export default function ProductsPage() {
         </section>
 
         {/* Global RFQ Banner */}
-        <section className="bg-gradient-to-r from-brand-orange/10 via-[#0a0f1a] to-amber-500/10 py-16 border-t border-slate-800">
+        <section className="bg-gradient-to-r from-brand-orange/10 via-background to-amber-500/10 py-16 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-foreground">
               Need a Custom Fabrication or Interior Solution?
             </h2>
-            <p className="mx-auto mt-2 max-w-xl text-sm text-slate-300">
+            <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
               We specialize in custom structural drawings, bespoke architectural metalwork, and turn-key modular interior engineering.
             </p>
             <div className="mt-6">

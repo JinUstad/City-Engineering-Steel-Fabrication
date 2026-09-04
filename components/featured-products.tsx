@@ -20,7 +20,7 @@ export function FeaturedProducts() {
   }
 
   return (
-    <section id="featured" className="scroll-mt-24 bg-[#090d16] py-16 sm:py-24 border-b border-border/60">
+    <section id="featured" className="scroll-mt-24 bg-background py-16 sm:py-24 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
@@ -44,11 +44,11 @@ export function FeaturedProducts() {
             return (
               <article
                 key={project.name}
-                className="group flex flex-col rounded-xl overflow-hidden border border-slate-800 bg-[#0f1624] shadow-md transition-all duration-300 hover:border-amber-500/50 hover:shadow-xl"
+                className="group flex flex-col rounded-xl overflow-hidden border border-border bg-card shadow-md transition-all duration-300 hover:border-brand-orange/60 hover:shadow-xl"
               >
                 <div
                   onClick={() => handleOpenGallery(project)}
-                  className="relative aspect-square overflow-hidden bg-slate-900 cursor-pointer"
+                  className="relative aspect-square overflow-hidden bg-muted cursor-pointer"
                   title="Click to view all photos in this folder"
                 >
                   <Image
@@ -58,7 +58,7 @@ export function FeaturedProducts() {
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f1624] via-transparent to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 dark:from-[#0f1624] dark:via-transparent dark:to-black/30" />
                   
                   <span className="absolute left-3 top-3 rounded bg-amber-500/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-black shadow">
                     {project.category}
@@ -79,37 +79,37 @@ export function FeaturedProducts() {
                 <div className="flex flex-1 flex-col p-5">
                   <h3
                     onClick={() => handleOpenGallery(project)}
-                    className="text-base font-bold text-white leading-snug group-hover:text-amber-400 transition-colors cursor-pointer"
+                    className="text-base font-bold text-foreground leading-snug group-hover:text-brand-orange dark:group-hover:text-amber-400 transition-colors cursor-pointer"
                   >
                     {project.name}
                   </h3>
-                  <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-300">
+                  <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
 
                   {/* Badges / Chips */}
                   {project.features && (
-                    <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-slate-800">
+                    <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-border">
                       {project.features.map((f: string) => (
-                        <span key={f} className="rounded bg-slate-800/90 border border-slate-700 px-2 py-0.5 text-[10px] font-medium text-amber-300">
+                        <span key={f} className="rounded bg-secondary border border-border px-2 py-0.5 text-[10px] font-medium text-amber-600 dark:text-amber-300">
                           {f}
                         </span>
                       ))}
                     </div>
                   )}
 
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                  <div className="mt-4 pt-3 border-t border-border flex items-center justify-between">
                     <button
                       type="button"
                       onClick={() => handleOpenGallery(project)}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-brand-orange hover:text-white transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 text-xs font-bold text-brand-orange hover:underline transition-colors cursor-pointer"
                     >
                       <span>View Gallery ({photoCount})</span>
                       <ArrowUpRight className="size-3.5" />
                     </button>
                     <Link
                       href="/contact"
-                      className="text-[11px] text-slate-400 hover:text-amber-400"
+                      className="text-[11px] text-muted-foreground hover:text-brand-orange"
                     >
                       Inquire
                     </Link>

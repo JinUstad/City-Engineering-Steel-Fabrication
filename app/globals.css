@@ -41,6 +41,47 @@
 }
 
 :root {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  
+  --primary: #ea580c;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  
+  --accent: #fff7ed;
+  --accent-foreground: #c2410c;
+  
+  --destructive: #ef4444;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #ea580c;
+
+  /* Custom CESF Logo Identity - Light Theme */
+  --brand-orange: #ea580c;
+  --brand-amber: #d97706;
+  --brand-navy: #0f172a;
+  --brand-dark: #ffffff;
+  --brand-slate: #f1f5f9;
+  --brand-metal: #475569;
+  --brand-steel: #0f172a;
+  --brand-tint: rgba(234, 88, 12, 0.08);
+
+  --radius: 6px;
+}
+
+.dark {
   color-scheme: dark;
   --background: #090d16;
   --foreground: #f1f5f9;
@@ -68,7 +109,7 @@
   --input: #131b2b;
   --ring: #ff6600;
 
-  /* Custom CESF Logo Identity */
+  /* Custom CESF Logo Identity - Dark Theme */
   --brand-orange: #ff5500;
   --brand-amber: #ffa800;
   --brand-navy: #0b101c;
@@ -77,8 +118,6 @@
   --brand-metal: #94a3b8;
   --brand-steel: #e2e8f0;
   --brand-tint: rgba(255, 85, 0, 0.08);
-
-  --radius: 6px;
 }
 
 @layer base {
@@ -89,7 +128,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground selection:bg-brand-orange selection:text-white;
+    @apply bg-background text-foreground selection:bg-brand-orange selection:text-white transition-colors duration-200;
   }
 }
 
@@ -118,6 +157,12 @@
   -webkit-text-fill-color: transparent;
 }
 
+.dark .steel-gradient-text {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 55%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .fire-gradient-text {
   background: linear-gradient(135deg, #ff8c00 0%, #ff5500 50%, #ff2a00 100%);
   -webkit-background-clip: text;
@@ -126,6 +171,12 @@
 
 .industrial-grid {
   background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+.dark .industrial-grid {
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
